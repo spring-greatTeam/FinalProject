@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.fin.store.model.service.StoreService;
 import com.project.fin.store.model.vo.Store;
@@ -32,6 +33,14 @@ public class StoreController {
 		model.addAttribute("storeList",storeList);
 		
 		return "store/storeList";
+	}
+	
+	@GetMapping("/storeDetail.me")
+	public String storeDetail(int storeNo, Model model) {
+		
+		Store store = storeservice.selectOneStore(storeNo);
+		model.addAttribute("store", store);
+		return "store/storeDetail";
 	}
 	
 }

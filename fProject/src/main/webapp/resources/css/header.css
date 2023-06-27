@@ -82,7 +82,9 @@ nav {
 }
 #menu {
   display: flex;
+  height: 40px;
   box-sizing: border-box;
+  padding-left: 0;
 }
 #menu li {
   float: left;

@@ -18,7 +18,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 <div class="container">
   <div class="category">
     <a href="${pageContext.request.contextPath}/store/storeList.me?category=1">
-      <img src="resources/img/koreanFood-removebg.png" />
+      <img src="resources/img/김치찌개.png" />
       <div>한식</div>
     </a>
   </div>

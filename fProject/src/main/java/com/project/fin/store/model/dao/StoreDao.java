@@ -8,7 +8,7 @@ import com.project.fin.store.model.vo.Store;
 
 @Mapper
 public interface StoreDao {
-
 	List<Store> selectStoreList();
 
+	Store selectOneStore(int storeNo);
 }
