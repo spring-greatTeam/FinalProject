@@ -26,9 +26,4 @@ public class StoreServiceImpl implements StoreService {
 		return storedao.selectStoreList();
 	}
 
-	@Override
-	public Store selectOneStore(int storeNo) {
-		return storedao.selectOneStore(storeNo);
-	}
-
 }

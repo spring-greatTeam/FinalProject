@@ -17,7 +17,7 @@ public class Store {
 	@NonNull
 	private String storeName;
 	@NonNull
-	private int category;
+	private int cactegory;
 	@NonNull
 	private String leader;
 	@NonNull
