@@ -1,0 +1,59 @@
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 25px;
+}
+a {
+  color: black;
+}
+
+body {
+  width: 1200px;
+  background-color: #f9f7e8;
+}
+
+/* 이미지 슬라이드 부분 */
+.slide {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  width: 1200px;
+}
+.slide > div {
+  position: absolute;
+  display: flex;
+  height: 100%;
+}
+.slide img {
+  width: 1200px;
+  height: 100%;
+}
+/* 카테고리 부분 */
+.container {
+  padding-top: 10px;
+  border-top: 1px solid #d5d5d5;
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category {
+  flex-basis: 33%;
+  margin-bottom: 3rem;
+}
+.category > a {
+  display: flex;
+  flex-direction: column;
+}
+.category img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.category img:hover {
+  transform: scale(1.3);
+}
