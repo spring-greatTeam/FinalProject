@@ -83,6 +83,7 @@ nav {
 #menu {
   display: flex;
   box-sizing: border-box;
+  padding-left: 0;
 }
 #menu li {
   float: left;
