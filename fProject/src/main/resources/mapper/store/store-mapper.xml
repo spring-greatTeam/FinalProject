@@ -11,4 +11,10 @@
 	  	  FROM STORE
 	  ORDER BY STORE_NO DESC
 	  </select>
+	  
+	  <select id = "selectOneStore" resultMap="storeMap">
+	  	SELECT *
+	  	  FROM STORE
+	  	 WHERE STORE_NO = #{storeNo}
+	  </select>
   </mapper>

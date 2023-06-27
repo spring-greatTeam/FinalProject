@@ -11,4 +11,6 @@ public interface StoreDao {
 
 	List<Store> selectStoreList();
 
+	Store selectOneStore(int storeNo);
+
 }

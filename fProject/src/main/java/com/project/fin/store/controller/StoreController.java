@@ -34,4 +34,11 @@ public class StoreController {
 		return "store/storeList";
 	}
 	
+	@GetMapping("/storeDetail.me")
+	public String storeDetail(int storeNo, Model model) {
+		
+		Store store = storeservice.selectOneStore(storeNo);
+		model.addAttribute("store", store);
+		return "store/storeDetail";
+	}
 }
