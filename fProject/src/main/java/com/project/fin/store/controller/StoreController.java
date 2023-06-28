@@ -23,13 +23,14 @@ public class StoreController {
 	 * @GetMapping("/storeList.me") public String storeList(int category, Model
 	 * model) { model.addAttribute("categoryNo",category); return
 	 * "redirect:/store/storeList"; }
-	 * 테스트
+	 *
 	 */
 	@GetMapping("/storeList.me")
 	public String storeList(int category, Model model) {
 		
 		List<Store> storeList = storeservice.selectStoreList();
-		
+		System.out.println(category);
+		System.out.println(storeList);
 		model.addAttribute("category", category);
 		model.addAttribute("storeList",storeList);
 		
@@ -40,6 +41,7 @@ public class StoreController {
 	public String storeDetail(int storeNo, Model model) {
 		
 		Store store = storeservice.selectOneStore(storeNo);
+		List<Menu> menu = storeservice.seleccmenuList(storeNo);
 		model.addAttribute("store", store);
 		return "store/storeDetail";
 	}
