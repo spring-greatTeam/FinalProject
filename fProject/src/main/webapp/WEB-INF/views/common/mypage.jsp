@@ -5,6 +5,9 @@ pageEncoding="UTF-8"%>
   rel="stylesheet"
   href="${pageContext.request.contextPath}/resources/css/mypage.css"
 />
+
+<!-- 테스트 -->
+
 <div id="adiv">
   <div id="bdiv">
     <div>

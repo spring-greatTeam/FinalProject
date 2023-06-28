@@ -1,32 +1,29 @@
 package com.project.fin.store.model.vo;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.Setter;
+import lombok.ToString;
 
 @AllArgsConstructor
-@Data
 @NoArgsConstructor
+@Setter
+@Getter
+@ToString
 public class Store {
-	
-	@NonNull
+
 	private int storeNo;
-	@NonNull
+	private int category;
 	private String storeName;
-	@NonNull
-	private int cactegory;
-	@NonNull
-	private String leader;
-	@NonNull
 	private String address;
+	private int phone;
+	private int openTime;
+	private int closeTime;
+	private int minPrice;
 	private String dayOff;
-	private String businessHours;
-	private String phone;
-	private String deliveryArea;
 	private String content;
-	private int limitPrice;
 	
 }
