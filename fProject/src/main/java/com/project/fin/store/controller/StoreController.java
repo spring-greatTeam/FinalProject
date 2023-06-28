@@ -23,6 +23,7 @@ public class StoreController {
 	 * @GetMapping("/storeList.me") public String storeList(int category, Model
 	 * model) { model.addAttribute("categoryNo",category); return
 	 * "redirect:/store/storeList"; }
+	 * 테스트
 	 */
 	@GetMapping("/storeList.me")
 	public String storeList(int category, Model model) {
