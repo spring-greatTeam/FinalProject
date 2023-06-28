@@ -1,0 +1,15 @@
+
+.project
+*.MF
+*.class
+*.properties
+target/
+.classpath
+.apt_generated
+.factorypath
+.settings
+.springBeans
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+fProject/target/m2e-wtp/web-resources/META-INF/maven/com.project/spring/pom.properties
