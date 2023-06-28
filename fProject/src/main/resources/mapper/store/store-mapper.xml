@@ -8,7 +8,7 @@
 	  
 	  <select id = "selectStoreList" resultMap="storeMap">
 	  	SELECT *
-	  	  FROM STORE
+	  	FROM STORE
 	  ORDER BY STORE_NO DESC
 	  </select>
 	  
