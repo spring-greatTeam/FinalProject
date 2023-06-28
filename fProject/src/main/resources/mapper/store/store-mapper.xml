@@ -5,6 +5,8 @@
   
  <mapper namespace = "com.project.fin.store.model.dao.StoreDao">
 	  <resultMap type = "store" id="storeMap"></resultMap>
+	  <resultMap type="menu" id="menuMap"></resultMap>
+	  <resultMap type="menugroup" id="menuGroup"></resultMap>
 	  
 	  <select id = "selectStoreList" resultMap="storeMap">
 	  	SELECT *
@@ -17,4 +19,17 @@
 	  	  FROM STORE
 	  	 WHERE STORE_NO = #{storeNo}
 	  </select>
+	  
+	  <select id="selectMenuList" resultMap="menuMap">
+	  select *
+	  from menu
+	  where STORE_NO = #{storeNo}
+	  </select>
+	  
+	  <select id="selectgroupList" resultMap="menuGroup">
+	  SELECT *
+	  FROM  MENU_GROUP
+	  where STORE_NO = #{storeNo}
+	  </select>
+	  
   </mapper>
