@@ -1,0 +1,36 @@
+      .question {
+        margin-bottom: 20px;
+      }
+
+      .question h3 {
+        margin: 0;
+        padding: 10px;
+        font-weight: bold;
+        background-color: #f9f7e8;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .question h3:hover {
+        background-color: #f5f2dd;
+      }
+
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .answer p {
+        margin: 0;
+        padding: 10px;
+        background-color: #f9f7e8;
+        color: #555;
+        border-bottom: 1px solid #ccc;
+        font-size: 20px;
+      }
+
+      .answer p:last-child {
+        border-bottom: none;
+      }
