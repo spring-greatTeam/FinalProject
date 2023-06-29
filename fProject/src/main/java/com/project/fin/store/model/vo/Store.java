@@ -2,12 +2,19 @@ package com.project.fin.store.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.ToString;
 
 @AllArgsConstructor
-@Data
 @NoArgsConstructor
+@Setter
+@Getter
+@ToString
 public class Store {
+
 	private int storeNo;
 	private int category;
 	private String storeName;
@@ -18,4 +25,5 @@ public class Store {
 	private int minPrice;
 	private String dayOff;
 	private String content;
+
 }
