@@ -10,12 +10,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 <title>Insert title here</title>
 </head>
 <body>
-<%
-  String store = (String) request.getAttribute("store");
-  String menuList = (String) request.getAttribute("menuList");
-  String groupList = (String) request.getAttribute("groupList");
-%>
-System.out.println("1234");
+
 <table>
     <c:forEach items="${groupList}" var="group">
         <tr>

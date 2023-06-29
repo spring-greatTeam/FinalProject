@@ -43,11 +43,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
     
     <div class="cont_area">
       <div id="tabMenu" class="cont">
-        <jsp:include page="/WEB-INF/views/store/tabContent/TabMenu.jsp">
-		    <jsp:param name="store" value="${store}" />
-		    <jsp:param name="menuList" value="${menuList}" />
-		    <jsp:param name="groupList" value="${groupList}" />
-	  	</jsp:include>
+        <%@ include file="tabContent/TabMenu.jsp" %>
       </div>
       <div id="tabReview" class="cont">
         <%@ include file="tabContent/TabReview.jsp" %>
