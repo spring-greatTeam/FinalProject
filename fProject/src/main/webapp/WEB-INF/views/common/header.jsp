@@ -41,8 +41,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
               >
               <span>|</span>
               <a href="${pageContext.request.contextPath}/member/memberEnroll.me"
-                >회원가입</a
-              >
+                >회원가입</a>
             </div>
           </c:if>
           <c:if test="${not empty userName}">
