@@ -28,8 +28,14 @@ public class MemberController {
 	@GetMapping("/login.me")
 	public void login() {};
 	
-	@GetMapping("/memberEnroll.me")
-	public void memberEnroll() {};
+	@GetMapping("memberEnroll.me")
+	public void memberEnroll() {}
+	
+	@PostMapping("/memberEnroll.me")
+	public String memberEnroll(Member member) {
+		int result = memberService.insertMember(member);
+		return "redirect:/";
+	};
 	
 	@GetMapping("/checkId.do")
 	public String checkId(@RequestParam String memberId, Model model) {

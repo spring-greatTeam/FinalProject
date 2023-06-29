@@ -90,7 +90,7 @@ input {
 				<tr>
 					<th scope="col">아이디</th>
 					<td scope="col">
-						<input name="memberId" placeholder="영문,숫자 4글자 이상" id="memeberId" required>
+						<input name="memberId" placeholder="영문,숫자 4글자 이상" id="memberId" required>
 						<span class="guide ok">멋진 아이디네요!</span>
 						<span class="guide error">이미 사용중이거나 탈퇴한 아이디입니다.</span>
 					</td>

@@ -13,6 +13,21 @@
 		where member_id = #{memberId}
 	</select>
 	
+	<insert id="insertMember">
+		insert into member
+		 values (
+		 	#{memberId},
+		 	#{memberPwd},
+		 	#{memberName},
+		 	#{memberBirthday},
+		 	#{phone},
+		 	#{address},
+		 	#{nickname},
+		 	#{grade},
+		 	0
+		 )
+	</insert>
+	
 </mapper>
 
 
