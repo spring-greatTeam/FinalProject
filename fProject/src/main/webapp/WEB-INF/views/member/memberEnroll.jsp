@@ -6,6 +6,7 @@ pageEncoding="UTF-8"%>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/memEnroll.css"/>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <jsp:include page="/WEB-INF/views/common/main.jsp" />
 	<div id="container">
@@ -55,9 +56,17 @@ pageEncoding="UTF-8"%>
 					</td>
 				</tr>
 					<tr>
+					<th scope="col">우편번호</th>
+					<td scope="col">
+						<input name="postcode" id="postcode" readonly> 
+						<input type="button" name="serchAddr" id="serchAddr" value="우편번호 찾기" onclick="findAddr();">
+					</td>
+				</tr>
+					<tr>
 					<th scope="col">주소</th>
 					<td scope="col">
-						<input name="address" required>
+						<input name="address" id="addr" required>
+						<input name="detailAddress" placeholder="상세주소" id="detailAddr">
 					</td>
 				</tr>
 					<tr>
@@ -88,12 +97,10 @@ document.querySelector("#memberId").addEventListener("keyup",(e) => {
     const limit = document.querySelector(".limit");
     const memberId = e.target;
     
-    
     if(memberId.value.length < 4 || !/^[a-zA-Z0-9]+$/.test(memberId.value) ) {
         ok.style.display = "none";
         error.style.display = "none";
         limit.style.display = "inline";
-        $("#memberId").focus();
         return;
     }
     
@@ -113,7 +120,6 @@ document.querySelector("#memberId").addEventListener("keyup",(e) => {
                 ok.style.display = "none";
                 error.style.display = "inline";
                 limit.style.display = "none";
-                $("#memberId").focus();
             }
         },
         error : console.log
@@ -164,7 +170,38 @@ $("#phoneCkeck").blur(function() {
 		$("#phoneLimit").hide();
 	}
 });
+
+/* 주소 API */
+function findAddr() {
+    new daum.Postcode({
+        oncomplete: function(data) { 
+			let roadAddr = data.roadAddress; //도로명 주소 변수
+			let homeAddr = data.jibunAddress; //지번 주소 변수 
+			let extraAddr = ''; //도로명과 지번 모두 합친 변수
+
+			document.getElementById("postcode").value = data.zonecode;
+			//id가 postcode인 요소의 값을 zonecode의 값으로 설정함
+
+			if(data.userSelectedType == 'R') { //사용자가 선택한 주소의 타입 R==도로명주소
+				if(roadAddr != '') {
+					if(data.bname != '') { //동,리주소가 있으면
+						extraAddr += data.bname;
+					}
+					if(data.buildingName != '') { //건물명이 있으면
+						extraAddr += extraAddr != '' ? ', ' + data.buildingName : data.buildingName
+					}
+					roadAddr += extraAddr != '' ? '(' + extraAddr + ')' : '';
+					document.getElementById("addr").value = roadAddr;
+				} 
+			} else if(data.userSelectedType == 'J') {
+				document.getElementById("addr").value = jibunAddr;
+			}
+			document.getElementById("detailAddr").focus();
+		}
 	
+	}).open();
+}
+
 /* form에 입력한 값이 없으면 회원가입 되지 않게 하기 */
 	
 	

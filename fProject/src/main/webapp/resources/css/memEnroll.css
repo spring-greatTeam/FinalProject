@@ -15,21 +15,21 @@
 
 /* 테이블 스타일 */
 .table {
-  width: 50%;
+  width: 55%;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
 
 /* 테이블 셀 스타일 */
 th, td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
 }
 
 /* 입력 필드 스타일 */
 input {
-  width: 100%;
+  width: 80%;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -78,3 +78,8 @@ input {
 #enrollBtn:hover {
   background-color: #E36509;
 }  
+
+/* 우편번호 찾기 버튼 호버 스타일 */
+#serchAddr:hover {
+	background-color: #ccc;
+}
