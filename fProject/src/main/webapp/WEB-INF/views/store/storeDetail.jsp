@@ -31,8 +31,8 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 			 <c:forEach items="${menuList}" var="menu"> 
 			<tr>
 				<c:if test="${group.groupNo eq menu.categoryNo}">
-					<td><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="${menu.menuNo }" 
-					data-menu-name="${menu.menuName}" data-menu-price="${menu.price}" data-menu-no="${menu.menuNo}">${menu.menuName}</a></td>
+					<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="${menu.menuNo }" 
+					data-menu-name="${menu.menuName}" data-menu-price="${menu.price}" data-menu-no="${menu.menuNo}">${menu.menuName}</button></td>
 					<td>${menu.price}</td>
 				</c:if> 
 			</tr>
@@ -50,6 +50,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 </button> -->
 
 <!-- Modal -->
+<form action="cart.me" name="cartFrm">
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content" style="height: 900px">
@@ -63,12 +64,12 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
       <div>총 금액 : <span id="menuprice"></span></div>
       <div class="modal-footer" style="width: 500px">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-        <button type="button" class="btn btn-primary">장바구니 담기</button>
+        <button type="button" class="btn btn-primary" id="addcart">장바구니 담기</button>
       </div>
     </div>
   </div>
 </div>
-
+</form>
 
 </table>
 </div>
@@ -157,15 +158,15 @@ $(document).on('click', '.btn-primary', function() {
 	          var options = response.optionList[i].opName.split(',');
 	          var optionprice = response.optionList[i].opPrice.split(',');
 	          value += "<ul class='opt'>" +
-	            "<li class=opTitle>" + response.optionList[i].opTitle + "</li>";
+	            "<li>" + response.optionList[i].opTitle + "</li>";
 	            
 	          if (response.optionList[i].opType == 'Y') {
 	            for (var j = 0; j < options.length; j++) {
-	              value += "<li>" + "<input type='radio' name='rbtn' value='" + optionprice[j]+"'>&ensp;" + options[j]+"<span class='oprice'>&emsp;"+"+"+optionprice[j]+"</span>"+ "</li>";
+	              value += "<li>" + "<input type='radio' name='rbtn' value='" + optionprice[j]+"'>&emsp;" + options[j]+"<span class='oprice'>&emsp;"+"+"+optionprice[j]+"</span>"+ "</li>";
 	            }
 	          } else {
 	            for (var j = 0; j < options.length; j++) {
-	              value += "<li>" + "<input type='checkbox' name='option' value='" + optionprice[j]+"'>&ensp;" + options[j] +"<span class='oprice'>&emsp;"+"+"+optionprice[j]+"</span>"+ "</li>";
+	              value += "<li>" + "<input type='checkbox' name='option' value='" + optionprice[j]+"'>&emsp;" + options[j] +"<span class='oprice'>&emsp;"+"+"+optionprice[j]+"</span>"+ "</li>";
 	              
 	            }
 	          }
@@ -189,11 +190,16 @@ $(document).on('click', '.btn-primary', function() {
 	    },
 	    
 	    error: function() {
-	      // AJAX 요청 실패 시 실행될 동작
-	      console.log("통신 실패");
+	      console.log("실패");
 	    }
 	  });
 	});
-
+	
+	//장바구니 담기 클릭시 장바구니 이동
+$(document).on('click', '#addcart', function(){
+	$("form[name='cartFrm']").submit();
+	$(".btn-secondary").click();
+});
+	
 </script>
  
