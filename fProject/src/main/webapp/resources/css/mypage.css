@@ -39,12 +39,13 @@ a {
 }
 #ediv {
   width: 100%;
+  height: 750px;
   display: flex;
 }
 #fdiv {
   width: 800px;
-  height: 500px;
-  margin-top: 10%;
+  height: 750px;
+  margin-top: 40px;
 }
 #gdiv {
   border-bottom: 1px solid;
@@ -54,8 +55,8 @@ a {
   width: fit-content;
 }
 #hdiv {
-  margin-top: 20px;
-  height: 200px;
+/*   margin-top: 20px;
+  height: 100px; */
 }
 #idiv {
   width: fit-content;
