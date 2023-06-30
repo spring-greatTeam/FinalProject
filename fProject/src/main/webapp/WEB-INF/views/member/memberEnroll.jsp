@@ -4,83 +4,8 @@ pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<script src="../../../resources/js/enroll.js"></script>
-
-<style>
-/* 회원가입 폼 스타일 */
-#container {
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* 회원가입 제목 스타일 */
-#enrollTitle {
-  font-size: 50px;
-  margin-bottom: 80px;
-  text-align: center;
-}
-
-/* 테이블 스타일 */
-.table {
-  width: 50%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-/* 테이블 셀 스타일 */
-th, td {
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
-}
-
-/* 입력 필드 스타일 */
-input {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-bottom: 5px;
-}
-
-/* 가이드 메시지 스타일 */
-.guide {
-  display: none;
-  font-size: 12px;
-  color: green;
-  margin-left: 10px;
-}
-
-/* 사용 가능한 아이디 메시지 스타일 */
-.ok {
-  color: green;
-}
-
-/* 사용 불가능한 아이디 메시지 스타일 */
-.error {
-  color: red;
-}
-
-/* 회원가입 완료 버튼 스타일 */
-#enrollBtn {
-  display: block;
-  padding: 10px 70px;
-  margin-top: 60px;
-  margin-bottom: 40px;
-  font-size: 30px;
-  background-color: #FEFBB8;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* 회원가입 완료 버튼 호버 스타일 */
-#enrollBtn:hover {
-  background-color: #E36509;
-}  
-</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/memEnroll.css"/>
 
 <jsp:include page="/WEB-INF/views/common/main.jsp" />
 	<div id="container">
@@ -93,18 +18,21 @@ input {
 						<input name="memberId" placeholder="영문,숫자 4글자 이상" id="memberId" required>
 						<span class="guide ok">멋진 아이디네요!</span>
 						<span class="guide error">이미 사용중이거나 탈퇴한 아이디입니다.</span>
+						<span class="guide limit">형식이 맞지 않습니다.</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="col">비밀번호</th>
 					<td scope="col">
-						<input type="password" name="memberPwd" placeholder="영문,숫자,특수문자 10글자 이상" required>
+						<input type="password" name="memberPwd" id="memberPwd" placeholder="영문+숫자+특수문자 8~16글자" required>
+						<span id="pwdLimit"></span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="col">비밀번호 확인</th>
 					<td scope="col">
-						<input type="password" name="pwdCheck" required>
+						<input type="password" name="pwdCheck" id="pwdCheck" required>
+						<span id="pwdRe"></span>
 					</td>
 				</tr>
 					<tr>
@@ -116,13 +44,14 @@ input {
 					<tr>
 					<th scope="col">생년월일</th>
 					<td scope="col">
-						<input type="date" name="memberBirthday" placeholder="생년월일 8자리(YYYYMMDD)" required>
+						<input type="date" name="memberBirthday" required>
 					</td>
 				</tr>
 					<tr>
 					<th scope="col">전화번호</th>
 					<td scope="col">
-						<input name="phone" placeholder="'-'문자 포함" required>
+						<input name="phone" id="phoneCkeck" placeholder="'-'문자 포함" required>
+						<span id="phoneLimit"></span>
 					</td>
 				</tr>
 					<tr>
@@ -149,16 +78,22 @@ input {
 	</div>
 	<br/>
 	<br/>
+	
 <script type="text/javascript">
-	/* 아이디 중복 체크 */
+	/* 아이디 중복 체크, 표현식 제한 */
 document.querySelector("#memberId").addEventListener("keyup",(e) => { 
+    $("#memberId").focus();
     const ok = document.querySelector(".ok");
     const error = document.querySelector(".error");
+    const limit = document.querySelector(".limit");
     const memberId = e.target;
     
-    if(memberId.value.length < 4) {
+    
+    if(memberId.value.length < 4 || !/^[a-zA-Z0-9]+$/.test(memberId.value) ) {
         ok.style.display = "none";
-        error.style.display = "inline";
+        error.style.display = "none";
+        limit.style.display = "inline";
+        $("#memberId").focus();
         return;
     }
     
@@ -173,13 +108,66 @@ document.querySelector("#memberId").addEventListener("keyup",(e) => {
             if(available) {
                 ok.style.display = "inline";
                 error.style.display = "none";
+                limit.style.display = "none";
             } else {
                 ok.style.display = "none";
                 error.style.display = "inline";
+                limit.style.display = "none";
+                $("#memberId").focus();
             }
         },
         error : console.log
     });
-}); 
+});
+
+/* 비밀번호 정규식 */
+$("#memberPwd").blur(function() {
+    let pwdCheck= /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+    
+    if ($("#memberPwd").val() == "") {
+        $("#pwdLimit").css("color", "red");
+        $("#pwdLimit").text("비밀번호를 입력하세요.");
+        $("#memberPwd").focus();
+     } else if (!pwdCheck.test($("#memberPwd").val())) {
+        $("#pwdLimit").css("color", "red");
+		$("#pwdLimit").text("비밀번호는 영문+숫자+특수문자 포함 8~16자리 입니다.");
+		$("#memberPwd").focus();
+     } else {
+        $("#pwdLimit").css("color", "green");
+        $("#pwdLimit").text("안전한 비밀번호 입니다!");
+     }
+});
+
+/* 비밀번호 재확인 */
+$("#pwdCheck").blur(function() {
+	if($("#pwdCheck").val() == "") {
+		$("#pwdRe").css("color", "red");
+		$("#pwdRe").text("비밀번호 재확인이 필요합니다.");
+	} else if ($("#pwdCheck").val() == $("#memberPwd").val()) {
+		$("#pwdRe").css("color", "green");
+		$("#pwdRe").text("비밀번호가 일치합니다!")
+	} else {
+		$("#pwdRe").css("color", "red");
+		$("#pwdRe").text("비밀번호가 일치하지 않습니다.")
+		$("#pwdCheck").focus();
+	}	
+});
+
+/* 전화번호에 '-'가 포함되지 않은 경우'*/
+$("#phoneCkeck").blur(function() {
+	let regex = /^\d{2,3}-\d{3,4}-\d{4}$/;
+	if(!regex.test($("#phoneCkeck").val())) {
+		$("#phoneLimit").css("color", "red");
+		$("#phoneLimit").text("'-'문자를 포함하여 입력하세요.");
+		$("#phoneCkeck").focus();
+	} else {
+		$("#phoneLimit").hide();
+	}
+});
+	
+/* form에 입력한 값이 없으면 회원가입 되지 않게 하기 */
+	
+	
+
 </script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

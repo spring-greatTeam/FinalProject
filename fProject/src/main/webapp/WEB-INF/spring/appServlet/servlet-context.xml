@@ -21,6 +21,15 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 회원가입 할 때 jsonView 사용하기 때문에 두 bean 설정 넣어줌 -->
+	<beans:bean id="jsonView" class="net.sf.json.spring.web.servlet.view.JsonView">
+        <beans:property name="contentType" value="application/json;charset=UTF-8"/>
+    </beans:bean>
+    
+    <beans:bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="1" />
+	</beans:bean>
+	
 	<context:component-scan base-package="com.project.fin" />
 	
 	
