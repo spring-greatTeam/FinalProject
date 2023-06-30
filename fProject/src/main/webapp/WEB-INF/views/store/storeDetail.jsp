@@ -3,58 +3,80 @@ pageEncoding="UTF-8"%> <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
 uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn"
 uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<style>
+    .tab_kind{position:relative;}
+    .tab_kind .list{   display: flex; padding-left:0; justify-content: center;
+					  width: 600px; height: 50px; margin-top:200px;}
+    .tab_kind .list li{ display: flex; align-items: center; width:20%; border:1px solid; }
+    .tab_kind .list li.is_on .btn{font-weight:bold; color:green;}
+    .tab_kind .list .btn{font-size:30px;}
+    .tab_kind .cont_area{margin-top:10px; width:800px; height:450px;}
+    .tab_kind .cont_area .cont{display:none; background:#18ecf0; color:#fff; text-align:center; width:800px; height:450px; line-height:100px;}
+</style>
+
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
 <div style="border: 1px solid; height: 800px; margin-top: 40px">
 <table>
 	<tr>
 		<td>${store.storeName}</td>
-		
 	</tr>
-	
-		
-	<c:forEach items="${groupList}" var="group">
-	<tr><td colspan="2">${group.groupName }<td>
-		
-	</tr>
-		
-			<c:forEach items="${menuList}" var="menu">
-			<tr>
-				<c:if test="${group.groupNo eq menu.categoryNo}">
-					<td>${menu.menuName }</td>
-					<td>${menu.price}</td>
-				</c:if>
-			</tr>
-			</c:forEach>
-		
-	</c:forEach>
-		
-		
-	
-	
-	<!-- Scrollable modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
- <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <td>최소주문금액: ${store.minPrice}</td>
+  <tr>
+    <td></td>
+  </tr>
+</table>
+  
+  <div class="tab_kind">
+    <ul class="list">
+      <li class="is_on">
+        <a href="#tabMenu" class="btn">메뉴</a>
+      </li>
+      <li>
+        <a href="#tabReview" class="btn">리뷰</a>
+      </li>	
+      <li>
+        <a href="#tabInfo" class="btn">정보</a>
+      </li>
+    </ul>
+    
+    <div class="cont_area">
+      <div id="tabMenu" class="cont">
+        <%@ include file="tabContent/TabMenu.jsp" %>
       </div>
-      <div class="modal-body">
-        ...
+      <div id="tabReview" class="cont">
+        <%@ include file="tabContent/TabReview.jsp" %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+      <div id="tabInfo" class="cont">
+        <%@ include file="tabContent/TabInfo.jsp" %>
       </div>
     </div>
   </div>
 </div>
-
-</table>
-</div>
+  
+  <script>
+    const tabList = document.querySelectorAll('.tab_kind .list li');
+    const contents = document.querySelectorAll('.tab_kind .cont_area .cont')
+    let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tabMenu 활성화)
+  
+    for(var i = 0; i < tabList.length; i++){
+      tabList[i].querySelector('.btn').addEventListener('click', function(e){
+        e.preventDefault();
+        for(var j = 0; j < tabList.length; j++){
+          // 나머지 버튼 클래스 제거
+          tabList[j].classList.remove('is_on');
+  
+          // 나머지 컨텐츠 display:none 처리
+          contents[j].style.display = 'none';
+        }
+  
+        // 버튼 관련 이벤트
+        this.parentNode.classList.add('is_on');
+  
+        // 버튼 클릭시 컨텐츠 전환
+        activeCont = this.getAttribute('href');
+        document.querySelector(activeCont).style.display = 'block';
+      });
+    }
+  </script>

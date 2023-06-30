@@ -16,6 +16,4 @@ public interface StoreService {
 
 	List<MenuGroup> selectgroupList(int storeNo);
 
-
-
 }
