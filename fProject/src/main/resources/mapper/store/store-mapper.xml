@@ -7,6 +7,7 @@
 	  <resultMap type = "store" id="storeMap"></resultMap>
 	  <resultMap type="menu" id="menuMap"></resultMap>
 	  <resultMap type="menugroup" id="menuGroup"></resultMap>
+	  <resultMap type="Options" id="optionList"></resultMap>
 	  
 	  <select id = "selectStoreList" resultMap="storeMap">
 	  	SELECT *
@@ -24,12 +25,31 @@
 	  select *
 	  from menu
 	  where STORE_NO = #{storeNo}
-	  </select>
+	  </select> 
 	  
-	  <select id="selectgroupList" resultMap="menuGroup">
+	   <select id="selectgroupList" resultMap="menuGroup">
 	  SELECT *
 	  FROM  MENU_GROUP
 	  where STORE_NO = #{storeNo}
-	  </select>
+	  </select> 
 	  
+	  <!-- <select id="selectMenuList2" resultMap="menuMap">
+	  select * 
+	  from menu
+	  WHERE menu_no = #{storeNo}
+	  </select> -->
+	   <select id="selectOption" resultMap="optionList">
+	  select *
+	  from options
+	  where menu_no = #{menuNo}
+	  </select> 
+	 <!--  <select id="selectOpTest" resultType="com.project.fin.store.model.dao.StoreDao">
+	  select OPTION_NO,
+				MENU_NO,
+				OP_TITLE,
+				OP_NAME,
+				OP_PRICE
+	  from options
+	  where menu_no = #(menu2)
+	  </select> -->
   </mapper>
