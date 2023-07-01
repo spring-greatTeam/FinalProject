@@ -39,7 +39,7 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public Menu selectOneMenu(int menuNo) {
+	public Menu selectOneMenu(String menuNo) {
 		return storedao.selectOneMenu(menuNo);
 	}
 
@@ -49,16 +49,8 @@ public class StoreServiceImpl implements StoreService {
 		return storedao.selectOption(menuNo);
 	}
 
-	@Override
-	public List<Options> selectOpTest(int menu2) {
-		return storedao.selectOpTest(menu2);
-	}
 
-	/*
-	 * @Override public Menu selectMenuList2(int menuNo) { return
-	 * storedao.selectMenuList2(menuNo); }
-	 */
-
+	
 
 
 

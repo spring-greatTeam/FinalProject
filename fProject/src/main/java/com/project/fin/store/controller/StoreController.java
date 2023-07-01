@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.fin.store.model.service.StoreService;
 import com.project.fin.store.model.vo.Menu;
@@ -38,17 +38,11 @@ public class StoreController {
 	@GetMapping("/storeDetail.me")
 	public String storeDetail(int storeNo, Model model) {
 	
-		
 		//매장번호로 매장정보 찾기
 		// 매장 번호로 해당 매장 메뉴 찾기.
 		Store store = storeservice.selectOneStore(storeNo);
 		List<Menu> menu = storeservice.selectMenuList(storeNo);
-	
 		List<MenuGroup> group = storeservice.selectgroupList(storeNo);
-		
-		Menu menu2 = new Menu();
-		int num = menu2.getMenuNo();
-		num = storeNo;
 		
 		model.addAttribute("store", store);
 		model.addAttribute("menuList", menu);
@@ -56,7 +50,6 @@ public class StoreController {
 		return "store/storeDetail";
 	}
 	
-
 	@GetMapping("test.me")
 	public String test(@RequestParam("menuNo") String menuNo, Model model) {
 		  // model로 json으로 값 넘겨서 modal에 사용
@@ -64,10 +57,7 @@ public class StoreController {
 		 model.addAttribute("optionList", optionList);
 		  return "storeList"; 
 		}
-	@GetMapping("cart.me")
-	public String addCart(String menuName) {
-		System.out.println(menuName);
-		return "redirect:/";
-	}
+		  
+		 
 }
 

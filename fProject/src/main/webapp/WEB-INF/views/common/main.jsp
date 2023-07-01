@@ -4,6 +4,7 @@ uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
 uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn"
 uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -62,7 +63,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
               </ul>
 
               <ul id="user" >
-                <span class="material-symbols-outlined custom-size"> shopping_cart </span>
+                <button id="cartButton"><span class="material-symbols-outlined custom-size"> shopping_cart </span></button>
                 <br>
                 장바구니
               </ul>

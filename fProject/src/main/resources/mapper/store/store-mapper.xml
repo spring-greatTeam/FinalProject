@@ -33,23 +33,10 @@
 	  where STORE_NO = #{storeNo}
 	  </select> 
 	  
-	  <!-- <select id="selectMenuList2" resultMap="menuMap">
-	  select * 
-	  from menu
-	  WHERE menu_no = #{storeNo}
-	  </select> -->
 	   <select id="selectOption" resultMap="optionList">
 	  select *
 	  from options
 	  where menu_no = #{menuNo}
 	  </select> 
-	 <!--  <select id="selectOpTest" resultType="com.project.fin.store.model.dao.StoreDao">
-	  select OPTION_NO,
-				MENU_NO,
-				OP_TITLE,
-				OP_NAME,
-				OP_PRICE
-	  from options
-	  where menu_no = #(menu2)
-	  </select> -->
+	 
   </mapper>
