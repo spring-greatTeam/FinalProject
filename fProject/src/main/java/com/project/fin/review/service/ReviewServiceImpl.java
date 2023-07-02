@@ -20,5 +20,11 @@ public class ReviewServiceImpl implements ReviewService{
 		return reviewDao.insertReview(review);
 	}
 
+	@Override
+	public List<Review> selectReviewList() {
+		// TODO Auto-generated method stub
+		return reviewDao.selectReviewList();
+	}
+
 
 }

@@ -15,6 +15,7 @@ pageEncoding="UTF-8"%>
       <ul>
         주문 내역 조회
         <a href="${pageContext.request.contextPath}/member/memberOrderHistory.me"><li>주문 내역</li></a>
+        <a href="${pageContext.request.contextPath}/review/reviewHistory.me"><li>리뷰 관리</li></a>
       </ul>
       <ul>
         회원정보

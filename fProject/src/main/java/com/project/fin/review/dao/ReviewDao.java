@@ -12,4 +12,6 @@ public interface ReviewDao {
 
 	int insertReview(Review review);
 
+	List<Review> selectReviewList();
+
 }

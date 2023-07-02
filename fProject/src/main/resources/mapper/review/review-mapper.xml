@@ -9,7 +9,9 @@
 	<insert id="insertReview">
 		insert into review values(seq_review.nextval, seq_orders.nextval, #{userId}, seq_store.nextval, #{rating}, SYSDATE, #{content})
 	</insert>
-	
+	<select id="selectReviewList" resultMap="reviewMap">
+		select * from review order by write DESC
+	</select>
 </mapper>
 
 
