@@ -56,17 +56,11 @@ pageEncoding="UTF-8"%>
 					</td>
 				</tr>
 					<tr>
-					<th scope="col">우편번호</th>
-					<td scope="col">
-						<input name="postcode" id="postcode" readonly> 
-						<input type="button" name="serchAddr" id="serchAddr" value="우편번호 찾기" onclick="findAddr();">
-					</td>
-				</tr>
-					<tr>
 					<th scope="col">주소</th>
 					<td scope="col">
-						<input name="address" id="addr" required>
+						<input name="address" id="addr" placeholder="주소" required>
 						<input name="detailAddress" placeholder="상세주소" id="detailAddr">
+						<input type="button" name="serchAddr" id="serchAddr" value="주소 찾기" onclick="findAddr();">
 					</td>
 				</tr>
 					<tr>
@@ -178,9 +172,6 @@ function findAddr() {
 			let roadAddr = data.roadAddress; //도로명 주소 변수
 			let homeAddr = data.jibunAddress; //지번 주소 변수 
 			let extraAddr = ''; //도로명과 지번 모두 합친 변수
-
-			document.getElementById("postcode").value = data.zonecode;
-			//id가 postcode인 요소의 값을 zonecode의 값으로 설정함
 
 			if(data.userSelectedType == 'R') { //사용자가 선택한 주소의 타입 R==도로명주소
 				if(roadAddr != '') {

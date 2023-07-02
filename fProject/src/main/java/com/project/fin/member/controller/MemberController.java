@@ -32,7 +32,8 @@ public class MemberController {
 	public void memberEnroll() {}
 	
 	@PostMapping("/memberEnroll.me")
-	public String memberEnroll(Member member) {
+	public String memberEnroll(@RequestParam String detailAddress, Member member) {
+		member.setAddress(member.getAddress() + detailAddress);
 		int result = memberService.insertMember(member);
 		return "redirect:/";
 	};
