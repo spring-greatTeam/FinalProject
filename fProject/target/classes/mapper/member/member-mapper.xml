@@ -5,7 +5,7 @@
 
 <!-- <mapper namespace="member"> -->
 <mapper namespace="com.project.fin.member.model.dao.MemberDao">
-
+	<resultMap type="member" id="memberMap"></resultMap>
 </mapper>
 
 

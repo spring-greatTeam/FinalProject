@@ -1,6 +1,9 @@
 package com.project.fin.member.model.service;
 
-public interface MemberService {
+import java.util.List;
 
+import com.project.fin.orders.model.vo.Orders;
+
+public interface MemberService {
 
 }

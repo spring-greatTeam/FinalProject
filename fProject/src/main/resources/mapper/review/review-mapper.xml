@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <mapper namespace="member"> -->
+<mapper namespace="com.project.fin.review.dao.reviewDao">
+	<resultMap type="review" id="reviewMap"></resultMap>
+	<insert id="insertReview">
+		insert into values(seq_review.nextval, seq_order.nextval, #{uesrId}, seq_store.nextval, #{rating}, SYSDATE, #{content})
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+

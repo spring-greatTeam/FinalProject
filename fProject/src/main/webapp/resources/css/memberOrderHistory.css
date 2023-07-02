@@ -1,0 +1,35 @@
+.order-container {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #d5d5d5;
+  padding: 20px;
+  position: relative;
+}
+
+.order-container h2 {
+  margin-top: 0;
+  magin-bottom: 10px;
+}
+
+.order-item {
+  margin-bottom: 10px;
+  font-size:20px;
+}
+
+.review-button {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f9f7e8;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.review-button:hover {
+  background-color: #f5f2dd;
+}
