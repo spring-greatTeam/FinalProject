@@ -76,7 +76,7 @@ pageEncoding="UTF-8"%>
 					</td>
 				</tr>
 			</table>
-			<button class="btn btn-outline-success" type="submit" id="enrollBtn" >회원가입 완료</button>
+			<button class="btn btn-outline-success" type="submit" id="enrollBtn" onclick="inputCheck();" >회원가입 완료</button>
 		</form>
 	</div>
 	<br/>
@@ -194,8 +194,49 @@ function findAddr() {
 }
 
 /* form에 입력한 값이 없으면 회원가입 되지 않게 하기 */
-	
-	
-
+function inputCheck() {
+	if(enrollfrm.memberId.value == "") {
+		alert("아이디를 입력해주세요");
+		enrollfrm.memberId.focus();
+		return;
+	}
+	if(enrollfrm.memberPwd.value == "") {
+		alert("비밀번호를 입력해주세요");
+		enrollfrm.memberPwd.focus();
+		return;
+	}
+	if(enrollfrm.pwdCheck.value == "") {
+		alert("비밀번호를 확인해주세요");
+		enrollfrm.pwdCheck.focus();
+		return;
+	}
+	if(enrollfrm.memberPwd.value != enrollfrm.pwdCheck.value) {
+		alert("비밀번호가 일치하지 않습니다");
+		enrollfrm.memberPwd.value="";
+		enrollfrm.memberPwd.focus();
+		return;
+	}
+	if(enrollfrm.memberName.value == "") {
+		alert("이름을 입력해주세요");
+		enrollfrm.memberName.focus();
+		return;
+	}
+	if(enrollfrm.address.value == "") {
+		alert("주소를 입력해주세요");
+		enrollfrm.address.focus();
+		return;
+	}
+	if(enrollfrm.detailAddress.value == "") {
+		alert("상세주소를 입력해주세요");
+		enrollfrm.detailAddress.focus();
+		return;
+	}
+	if(enrollfrm.nickname.value == "") {
+		alert("닉네임을 입력해주세요");
+		enrollfrm.nickname.focus();
+		return;
+	}
+	enrollfrm.submit();	
+}
 </script>
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
