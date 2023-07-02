@@ -12,12 +12,12 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 			<div id="gdiv">리뷰작성</div>
       			<div id="hdiv">
       				
-      				<form class="review-form" action="review.me" method="post">
+      				<form class="review-form" action="${pageContext.request.contextPath}/member/review.me" method="post">
 					  <label for="name">아이디:</label>
-					  <input type="text" id="userId" name="name" required>
+					  <input type="text" name="userId" required>
 
 					  <label for="rating">평점:</label>
-					  <select id="rating" name="rating" required>
+					  <select name="rating" required>
 					    <option value="">선택하세요</option>
 					    <option value="5">5점</option>
 					    <option value="4">4점</option>
@@ -27,7 +27,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 					  </select>
 					
 					  <label for="review">리뷰:</label>
-					  <textarea id="review" name="content" rows="4" required></textarea>
+					  <textarea name="content" rows="4" required></textarea>
 						<br>
 						<input type="hidden" name="orderNo" value="1">
 					  <button type="submit">리뷰 작성</button>

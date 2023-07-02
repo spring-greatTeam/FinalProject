@@ -10,6 +10,6 @@ import com.project.fin.review.vo.Review;
 @Mapper
 public interface ReviewDao {
 
-	List<Review> insertReview();
+	int insertReview(Review review);
 
 }

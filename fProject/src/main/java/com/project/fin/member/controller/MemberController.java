@@ -92,15 +92,12 @@ public class MemberController {
 	  }
 	
 	 @PostMapping("/review.me")
-	  public String submitReview(@RequestParam("orderNo") int orderNo, String userId, int rating, String content, Model model) {
+	  public String submitReview(Review review, @RequestParam("orderNo") int orderNo) {
 	    // 리뷰 작성 폼에서 제출된 리뷰 내용을 처리하는 로직을 작성합니다.
 	    // 예시로 모델에 orderNo와 reviewText를 추가해보겠습니다.
 		 
-		System.out.println(orderNo);
-		List <Review> Review =  reviewService.insertReview();
-		model.addAttribute("review", Review);
-	    System.out.println("review" + Review);
-	    
+		
+	    int result = reviewService.insertReview(review);
 	    // 리뷰 작성 결과를 표시하는 JSP 페이지로 이동합니다.
 	    return "redirect:/";
 	  }

@@ -5,9 +5,8 @@ import java.util.List;
 import com.project.fin.review.vo.Review;
 
 
-
 public interface ReviewService {
 
-	List<Review> insertReview();
+	int insertReview(Review review);
 
 }
