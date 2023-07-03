@@ -53,8 +53,6 @@ public class StoreController {
 		System.out.println(menu);
 		
 		return "store/storeDetail";
-		
-		
+			
 	}
-	
 }

@@ -25,5 +25,5 @@ public class Store {
 	private int minPrice;
 	private String dayOff;
 	private String content;
-	
+
 }
