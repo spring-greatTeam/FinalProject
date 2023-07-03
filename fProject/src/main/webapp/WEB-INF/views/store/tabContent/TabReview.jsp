@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-리뷰창입니다.
+
 </body>
 </html>

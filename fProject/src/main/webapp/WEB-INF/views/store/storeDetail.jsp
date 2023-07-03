@@ -3,21 +3,48 @@ pageEncoding="UTF-8"%> <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
 uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn"
 uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <style>
+	.title{text-align:center; padding: 10px 0 0 0; font-size:50px;}
+	.top{display:flex; padding: 10px 0 0 0;}
+	.img{margin-left:auto; margin-right:0; padding: 0 50px 0 0;}
+	.sideInfo{margin-right:auto; margin-left:0;}
     .tab_kind{position:relative;}
     .tab_kind .list{   display: flex; padding-left:0; justify-content: center;
-					  width: 600px; height: 50px; margin-top:200px;}
+					  width: 600px; height: 50px; margin-top:30px;}
     .tab_kind .list li{ display: flex; align-items: center; width:20%; border:1px solid; }
     .tab_kind .list li.is_on .btn{font-weight:bold; color:green;}
     .tab_kind .list .btn{font-size:30px;}
     .tab_kind .cont_area{margin-top:10px; width:800px; height:450px;}
-    .tab_kind .cont_area .cont{display:none; background:#18ecf0; color:#fff; text-align:center; width:800px; height:450px; line-height:100px;}
+    .tab_kind .cont_area .cont{display:none; background:#f9f7e8; color:black;width:800px; height:550px;}
 </style>
-
+</head>
+<body>
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
 
-<div style="border: 1px solid; height: 800px; margin-top: 40px">
+<div style="border: 1px solid; height: 950px; margin-top: 40px">
+<div class="title">여기요</div>
+
+<div class="top">
+<div class="img">
+<c:choose>
+	<c:when test="${store.storeNo==1}">
+		<img src="${pageContext.request.contextPath}/resources/upload/store/달시루_배경X.png" style="width:200px;height:200px;vertical-align:middle;"/>
+	</c:when>
+	<c:when test="${store.storeNo==2}">
+		<img src="${pageContext.request.contextPath}/resources/upload/store/바른김밥_배경X.png" style="width:200px;height:200px;vertical-align:middle;"/>
+	</c:when>
+	<c:otherwise>
+		<img src="${pageContext.request.contextPath}/resources/upload/store/당산김밥_배경X.png" style="width:200px;height:200px;vertical-align:middle;"/>
+	</c:otherwise>
+</c:choose>
+</div>
+
+<div class="sideInfo">
 <table>
 	<tr>
 		<td>${store.storeName}</td>
@@ -27,7 +54,8 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
     <td></td>
   </tr>
 </table>
-  
+</div> 
+</div>
   <div class="tab_kind">
     <ul class="list">
       <li class="is_on">
@@ -80,3 +108,5 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
       });
     }
   </script>
+</body>
+</html>

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.project.fin.store.model.service.StoreService;
 import com.project.fin.store.model.vo.Menu;
 import com.project.fin.store.model.vo.MenuGroup;
-import com.project.fin.store.model.vo.Store;
 
+import com.project.fin.store.model.vo.Store;
 @Controller
 @RequestMapping("/store")
 public class StoreController {
