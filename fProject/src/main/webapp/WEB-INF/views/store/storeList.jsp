@@ -22,7 +22,11 @@
 		border:1px solid black;
 		border-radius:30px;
 		padding: 10px 30px;
-		
+		display: inline-block; /* a 태그를 inline-block 요소로 설정 */
+		transition: transform 0.3s ease;
+	}
+	.storeList a:hover{
+		transform: scale(1.3);
 	}
 </style>
 </head>
