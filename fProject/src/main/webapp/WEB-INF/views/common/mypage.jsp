@@ -14,7 +14,7 @@ pageEncoding="UTF-8"%>
       <div id="cdiv">My Page</div>
       <ul>
         주문 내역 조회
-        <a href="${pageContext.request.contextPath}/member/memberOrderHistory.me"><li>주문 내역</li></a>
+        <a href="${pageContext.request.contextPath}/review/memberOrderHistory.me"><li>주문 내역</li></a>
         <a href="${pageContext.request.contextPath}/review/reviewHistory.me"><li>리뷰 관리</li></a>
       </ul>
       <ul>

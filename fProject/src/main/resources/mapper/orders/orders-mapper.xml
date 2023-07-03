@@ -7,7 +7,7 @@
 <mapper namespace="com.project.fin.orders.model.dao.OrdersDao">
 	<resultMap type="orders" id="ordersMap"></resultMap>
 	<select id="selectOrdersList" resultMap="ordersMap">
-		select ORDER_NO, STORE_NAME, MENU_NAME, PRICE, TOTALPRICE, ORD_ADDRESS from orders
+		select ORDER_NO, STORE_NAME, MENU_NAME, PRICE, TOTALPRICE, ORD_ADDRESS from orders where member_id = 'user01'
 	</select>
 </mapper>
 

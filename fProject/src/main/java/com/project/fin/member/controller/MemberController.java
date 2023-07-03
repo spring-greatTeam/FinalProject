@@ -53,12 +53,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("/memberOrderHistory.me")
-	public String memberOrderHistory(Model model) {
-		List<Orders> ordersList = ordersService.selectOrdersList();
-		model.addAttribute("ordersList", ordersList);
-		return "member/memberOrderHistory";
-	}
+	
 // My Page
 	@GetMapping("memberMyPage.me")
 	public void memberMyPage() {}
@@ -81,27 +76,7 @@ public class MemberController {
 		 model.addAttribute("userName", id);
 		return "redirect:/";
 	}
-	@GetMapping("/review.me")
-	  public String showReviewForm(@RequestParam("orderNo")int orderNo, Model model) {
-	    // orderNo를 활용하여 리뷰 작성 폼을 구성하고 모델에 필요한 데이터를 추가하는 로직을 작성합니다.
-	    // 예시로 모델에 orderNo를 추가해보겠습니다.
-	    model.addAttribute("orderNo", orderNo);
-	    
-	    // 리뷰 작성 폼을 표시하는 JSP 페이지로 이동합니다.
-	    return "review/reviewFrm";
-	  }
-	
-	 @PostMapping("/review.me")
-	  public String submitReview(Review review, @RequestParam("orderNo") int orderNo) {
-	    // 리뷰 작성 폼에서 제출된 리뷰 내용을 처리하는 로직을 작성합니다.
-	    // 예시로 모델에 orderNo와 reviewText를 추가해보겠습니다.
-		 
-		
-	    int result = reviewService.insertReview(review);
-	    // 리뷰 작성 결과를 표시하는 JSP 페이지로 이동합니다.
-	    return "redirect:/";
-	  }
-테스트
+
 }
 
 

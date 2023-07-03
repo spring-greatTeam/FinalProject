@@ -10,7 +10,10 @@
 		insert into review values(seq_review.nextval, seq_orders.nextval, #{userId}, seq_store.nextval, #{rating}, SYSDATE, #{content})
 	</insert>
 	<select id="selectReviewList" resultMap="reviewMap">
-		select * from review order by write DESC
+		select * from review where user_id = 'user01' order by write DESC
+	</select>
+	<select id="selectTotalRecord" resultType="_int">
+		select count(*) from review
 	</select>
 </mapper>
 
