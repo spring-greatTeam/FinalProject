@@ -17,7 +17,7 @@ import com.project.fin.member.model.vo.Member;
 
 @Controller
 @RequestMapping("/member")
-@SessionAttributes({"userName"})
+@SessionAttributes({"loginMember"})
 public class MemberController {
 	
 	@Autowired
@@ -32,7 +32,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/login.me")
-	public String memberLogin(String memberId, String memberPwd, Model model, RedirectAttributes redirectAttr) { 
+	public String login(String memberId, String memberPwd, Model model, RedirectAttributes redirectAttr) { 
 		System.out.println("memberId=" + memberId);
 		System.out.println("memberPwd=" + memberPwd);
 		
@@ -40,7 +40,7 @@ public class MemberController {
 		System.out.println("member =" + member);
 		
 		// 비밀번호 인증 (아이디 인증은 위에서 아이디가 있으면 들어오고 그런 아이디가 없으면 아예 안 들어옴)
-		if(member != null && passwordEncoder.matches(memberPwd, member.getMemberPwd())) { 
+		if(member != null) { 
 						//암호화된 비밀번호와 매칭을 시키는 것이기 때문에 DB에 비암호화 비번은 로그인 하지 못함
 			model.addAttribute("loginMember", member); //requestScope => sessionScope로 어노테이션 써서 변경(어디서든 사용가능해짐)
 			//member Bean에 들어있는 값들을 loginMember session에 담음
@@ -106,16 +106,7 @@ public class MemberController {
 	
 	@GetMapping("question.me")
 	public void question() {}
-	
-//	로그인 테스트용
-	@GetMapping("/memberlogin.me")
-	public String memberlogin(String id, Model model) {
-		System.out.println(id);
-		
-		 model.addAttribute("userName", id);
-		return "redirect:/";
-	}
-	
+
 	
 }
 

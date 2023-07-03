@@ -11,24 +11,22 @@ pageEncoding="UTF-8"%>
     <title>Insert title here</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
-    
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
+<jsp:include page="/WEB-INF/views/common/main.jsp" />
 <body>
 <div id="topdiv">
       <div id="logo">
         <a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/resources/img/logo2-removebg.png" alt="이미지없음"></a>
       </div>
-      <form action="${pageContext.request.contextPath}/member/login.me" method="GET">
+      <form action="${pageContext.request.contextPath}/member/login.me" method="post">
       <div>
       <div>
 	      <div>
 	        <div id="iddiv">
-	        <input class="login" id="id" name="id" placeholder="아이디">
-	        <button type="button" id="resetbtn" style="background-color: white;">✖️</button>
+	        <input class="login" id="id" name="memberId" placeholder="아이디">
 	      </div>
 	      </div>
 	      <div>
-	        <input class="login" type="password" id="pwd" placeholder="비밀번호">
+	        <input class="login" type="password" id="pwd" name="memberPwd" placeholder="비밀번호">
 	      </div>
 	    </div>
 	      <div>
@@ -48,4 +46,3 @@ pageEncoding="UTF-8"%>
 <script src="${pageContext.request.contextPath}/resources/js/login.js" ></script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />
-
