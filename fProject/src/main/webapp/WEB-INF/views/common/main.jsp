@@ -63,7 +63,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
               </ul>
 
               <ul id="user" >
-                <button id="cartButton"><span class="material-symbols-outlined custom-size"> shopping_cart </span></button>
+                <a href="${pageContext.request.contextPath}/cart/cart.me"><span class="material-symbols-outlined custom-size"> shopping_cart </span></a>
                 <br>
                 장바구니
               </ul>

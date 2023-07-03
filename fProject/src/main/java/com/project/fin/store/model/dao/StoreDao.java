@@ -20,9 +20,7 @@ public interface StoreDao {
 
 	List<MenuGroup> selectgroupList(int storeNo);
 
-	Menu selectOneMenu(String menuNo);
-
-	List<Options> selectOption(String menuNo);
+	List<Options> selectOption(int menuNo);
 
 
 

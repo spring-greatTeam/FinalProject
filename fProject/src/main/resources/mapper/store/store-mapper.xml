@@ -33,7 +33,7 @@
 	  where STORE_NO = #{storeNo}
 	  </select> 
 	  
-	   <select id="selectOption" resultMap="optionList">
+	  <select id="selectOption" resultMap="optionList">
 	  select *
 	  from options
 	  where menu_no = #{menuNo}

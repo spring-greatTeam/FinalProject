@@ -55,7 +55,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
                 ${userName}님 접속완료
                 <li>마이페이지</a></li>
                 <li>
-                  <a
+                   <a
                     href="${pageContext.request.contextPath}/member/memberLogout.me"
                     >로그아웃</a
                   >
@@ -63,7 +63,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
               </ul>
 
               <ul id="user" >
-                <span class="material-symbols-outlined custom-size"> shopping_cart </span>
+                <a href="${pageContext.request.contextPath}/cart/cart.me"><span class="material-symbols-outlined custom-size"> shopping_cart </span></a>
                 <br>
                 장바구니
               </ul>

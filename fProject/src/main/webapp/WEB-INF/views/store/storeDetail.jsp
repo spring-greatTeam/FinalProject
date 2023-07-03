@@ -70,6 +70,9 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 <input type="hidden" id="menuName" name="menuName" value="">
 <input type="hidden" id="memberId" name="memberId" value="">
 <input type="hidden" id="storeNo" name="storeNo" value="">
+<input type="hidden" id="opTitle" name="opTitle" value="">
+<input type="hidden" id="opName" name="opName" value="">
+<input type="hidden" id="oprbtn" name="oprbtn" value="">
 </form>
 
 
@@ -77,6 +80,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 $(document).on('click', '.btn-primary', function() {
 	  var menuNo = $(this).data('menu-no');
 	  var menuName = $(this).data('menu-name');
+	  console.log(menuNo);
 	  var menuprice = $(this).data('menu-price');
 	  var storeName = $(this).data('store-name');
 	  var memberId = $(this).data('member-userid');
@@ -84,21 +88,20 @@ $(document).on('click', '.btn-primary', function() {
 	  quantity = 1;
 	  $.ajax({
 	    url: "test.me",
-	    data: {menuNo: menuNo},
-	    dataType: 'json',
+	    data: {menuNo:menuNo},
 	    type: "GET",
 	    success: function(response) {
 	     var quantity = $('#quantity').val();
 	     var value = '';
 	     var totalPrice = menuprice;
-	     
-	     
-	     
+	     var opTitle = [];
 	      for (var i = 0; i < response.optionList.length; i++) {
 	          var options = response.optionList[i].opName.split(',');
 	          var optionprice = response.optionList[i].opPrice.split(',');
 	          value += "<ul class='opt'>" +
 	            "<li>" + response.optionList[i].opTitle + "</li>";
+	            
+	            opTitle.push(response.optionList[i].opTitle);
 	            
 	          if (response.optionList[i].opType == 'Y') {
 	            for (var j = 0; j < options.length; j++) {
@@ -120,22 +123,32 @@ $(document).on('click', '.btn-primary', function() {
 	      $("#menuName").val(menuName);
 	      $("#memberId").val(memberId);
 	      $("#storeNo").val(storeNo);
+	      $("#opTitle").val(opTitle);
 	      
 	      $("input[name='option']").on('change', function(){
 	    	  var menuprice = parseInt($("#menuprice").val());
 	    	  var quantity = parseInt($("#quantity").val());
 	    	  var totalPrice = menuprice * quantity;
 
+	    	  $("input[name='option']").on('change', function() {
+	    		    var oprbtnValue = '';
 	    	  // 체크박스 반복문 ( 체크된것들 곱해서 수량합을 토탈에 더하기)
+	    	  var test =[];	//체크한 옵션값 넘기기
+	    	  
 	    	  $("input[name='option']:checked").each(function() {
 	    	    var checkprice = parseInt($(this).val());
+	    	    
 	    	    totalPrice += (checkprice * quantity);
-	    	    console.log("체크금액:"+totalPrice);
+	    	    test.push($(this).parent().text().trim().replace(/\+\d+/g, ''));
+	    	    oprbtnValue += $(this).parent().text().trim().replace(/\+\d+/g, '') + ',';
+	    	    console.log(oprbtnValue);
+	    	    $("#opName").val(test);
+	    	    $("#oprbtn").val(oprbtnValue);
+	    	    });
+	    	   
 	    	  });
-
 	    	  $("#totalPrice").val(totalPrice);
 	    	});
-
 	    },    
 	    error: function() {
 	      console.log("실패");
@@ -143,7 +156,7 @@ $(document).on('click', '.btn-primary', function() {
 	  });
 	});
 	
-//수량 초기값 설정 (0이하 체크 x)
+//수량 금액 초기값 설정 (0이하 체크 x)
 	var quantity = $("#quantity").val();	
 $(document).on('click', '#plusbtn', function(){
 		++quantity;

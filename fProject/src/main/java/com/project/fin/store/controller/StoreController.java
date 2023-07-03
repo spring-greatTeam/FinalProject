@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,7 +17,6 @@ import com.project.fin.store.model.vo.Store;
 
 @Controller
 @RequestMapping("/store")
-//@SessionAttributes({"menu"})
 public class StoreController {
 
 	@Autowired
@@ -49,13 +47,12 @@ public class StoreController {
 		model.addAttribute("groupList", group);
 		return "store/storeDetail";
 	}
-	
-	@GetMapping("test.me")
-	public String test(@RequestParam("menuNo") String menuNo, Model model) {
+	@GetMapping("/test.me")
+	public String test(@RequestParam(name = "menuNo") int menuNo, Model model) {
 		  // model로 json으로 값 넘겨서 modal에 사용
 		 List<Options> optionList = storeservice.selectOption(menuNo);
 		 model.addAttribute("optionList", optionList);
-		  return "storeList"; 
+		 return "storeList"; 
 		}
 		  
 		 

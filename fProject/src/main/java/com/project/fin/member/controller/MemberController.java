@@ -1,5 +1,7 @@
 package com.project.fin.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -9,15 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.project.fin.cart.model.service.CartService;
 import com.project.fin.member.model.service.MemberService;
 
 @Controller
 @RequestMapping("/member")
-@SessionAttributes({"userName"})
+@SessionAttributes({"cartList", "userName"})
 public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private CartService cartservice;
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -32,10 +38,11 @@ public class MemberController {
 	public void memberFind() {};
 
 	@GetMapping("/memberLogout.me")
-	public String memberLogout(SessionStatus status) {
+	public String memberLogout(SessionStatus status, HttpSession session) {
 		if(!status.isComplete())
 			status.setComplete();
-		
+		String userName =(String) session.getAttribute("userName");
+		int result = cartservice.deleteCart(userName);
 		return "redirect:/";
 	}
 // My Page
