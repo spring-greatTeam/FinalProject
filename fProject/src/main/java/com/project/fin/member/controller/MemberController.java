@@ -101,6 +101,7 @@ public class MemberController {
 	    // 리뷰 작성 결과를 표시하는 JSP 페이지로 이동합니다.
 	    return "redirect:/";
 	  }
+테스트
 }
 
 
