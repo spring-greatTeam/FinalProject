@@ -1,8 +1,6 @@
 package com.project.fin.member.model.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-
-import com.project.fin.member.model.vo.Member;
 /*
  * 1. mapper.xml로 연결
  * 2. 추상메소드에 @Insert @Update @Delete @Select를 통해 간단한 쿼리 직접 작성
@@ -11,10 +9,5 @@ import com.project.fin.member.model.vo.Member;
  */
 @Mapper
 public interface MemberDao {
-
-	Member selectOneMember(String memberId);
-
-	int insertMember(Member member);
-	
 	
 }
