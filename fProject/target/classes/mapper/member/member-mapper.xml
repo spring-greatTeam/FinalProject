@@ -5,13 +5,27 @@
 
 <!-- <mapper namespace="member"> -->
 <mapper namespace="com.project.fin.member.model.dao.MemberDao">
-
+	<resultMap type="member" id="memberMap"></resultMap>
+	
+	<select id="selectOneMember" resultMap="memberMap">
+		select *
+			from member
+		where member_id = #{memberId}
+	</select>
+	
+	<insert id="insertMember">
+		insert into member
+		 values (
+		 	#{memberId},
+		 	#{memberPwd},
+		 	#{memberName},
+		 	#{memberBirthday},
+		 	#{phone},
+		 	#{address},
+		 	#{nickname},
+		 	#{grade},
+		 	0
+		 )
+	</insert>
+	
 </mapper>
-
-
-
-
-
-
-
-

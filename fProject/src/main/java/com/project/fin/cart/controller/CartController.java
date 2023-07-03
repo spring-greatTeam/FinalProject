@@ -19,7 +19,7 @@ import com.project.fin.cart.model.vo.Cart;
 import com.project.fin.cart.model.vo.CartList;
 
 @Controller
-@SessionAttributes({"cartList", "userName"})
+@SessionAttributes({"cartList", "loginMember"})
 @RequestMapping("/cart")
 public class CartController {
 
@@ -29,7 +29,7 @@ public class CartController {
 	// 장바구니 목록에 추가
 	@PostMapping("cart.me")
 	public String insertCart(Cart cart,String oprbtn, RedirectAttributes redirectAttributes,HttpSession session) {
-		String memberId =(String) session.getAttribute("userName");
+		String memberId =(String) session.getAttribute("loginMember");
 		int storeNo = cart.getStoreNo();
 			System.out.println(oprbtn);
 			// 1. 장바구니 여부 (없으면 새로 생성)
@@ -73,7 +73,7 @@ public class CartController {
 	// 장바구니 클릭시 리스트 - 로그인 아이디 없으면 장바구니 생성
 	@GetMapping("/cart.me")
 	public String cartList(Model model, HttpSession session) {
-		String memberId = (String) session.getAttribute("userName");
+		String memberId = (String) session.getAttribute("loginMember");
 		if(memberId.equals("") || memberId == null) {
 			return "/cart/cart";
 		}

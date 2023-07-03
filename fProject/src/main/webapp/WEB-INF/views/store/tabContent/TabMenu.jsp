@@ -1,131 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
+uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn"
+uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- 모달 -->
-<%-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store_modal.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/store_modal.css"> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="${pageContext.request.contextPath}/resources/css/header.css"
+    />
 
 <!-- swal -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.js"></script> --%>
-<jsp:include page="/WEB-INF/views/common/header.jsp" />
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.js"></script>
 
-<style>
-	.title{text-align:center; padding: 10px 0 0 0; font-size:50px;}
-	.top{display:flex; padding: 10px 0 0 0;}
-	.img{margin-left:auto; margin-right:0; padding: 0 50px 0 0;}
-	.sideInfo{margin-right:auto; margin-left:0;}
-    .tab_kind{position:relative;}
-    .tab_kind .list{   display: flex; padding-left:0; justify-content: center;
-					  width: 600px; height: 50px; margin-top:30px;}
-    .tab_kind .list li{ display: flex; align-items: center; width:20%; border:1px solid; }
-    .tab_kind .list li.is_on .btn{font-weight:bold; color:green;}
-    .tab_kind .list .btn{font-size:30px;}
-    .tab_kind .cont_area{margin-top:10px; width:800px; height:450px;}
-    .tab_kind .cont_area .cont{display:none; background:#f9f7e8; color:black;width:800px; height:550px;}
-</style>
-</head>
-<body>
-
-
-<div style="border: 1px solid; height: 950px; margin-top: 40px">
-<div class="title">여기요</div>
-
-<div class="top">
-<div class="img">
-<c:choose>
-	<c:when test="${store.storeNo==1}">
-		<img src="${pageContext.request.contextPath}/resources/upload/store/달시루_배경X.jpg" style="width:200px;height:200px;vertical-align:middle;"/>
-	</c:when>
-	<c:when test="${store.storeNo==2}">
-		<img src="${pageContext.request.contextPath}/resources/upload/store/바른김밥_배경X.jpg" style="width:200px;height:200px;vertical-align:middle;"/>
-	</c:when>
-	<c:otherwise>
-		<img src="${pageContext.request.contextPath}/resources/upload/store/당산김밥_배경X.jpg" style="width:200px;height:200px;vertical-align:middle;"/>
-	</c:otherwise>
-</c:choose>
-</div>
-
-<div class="sideInfo">
+<div style="border: 1px solid; height: 800px; margin-top: 40px;">
 <table>
 	<tr>
 		<td>${store.storeName}</td>
+		<td>${sessionScope.userName}</td>
 	</tr>
-    <td>최소주문금액: ${store.minPrice}</td>
-  <tr>
-    <td></td>
-  </tr>
+	
+		<c:forEach items="${groupList}" var="group">
+	<tr><td colspan="2">${group.groupName }</td>
+		
+	</tr>
+			 <c:forEach items="${menuList}" var="menu"> 
+			<tr>
+				<c:if test="${group.groupNo eq menu.categoryNo}">
+					<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="${menu.menuNo }" 
+					data-store-no="${store.storeNo}" data-member-userid="${sessionScope.userName}" 
+					data-store-name="${store.storeName}" data-menu-name="${menu.menuName}" data-menu-price="${menu.price}" 
+					data-menu-no="${menu.menuNo}">${menu.menuName}</button></td>
+					<td>${menu.price}</td>
+				</c:if> 
+			</tr>
+			 </c:forEach>
+	</c:forEach> 
+
+ 
 </table>
-</div> 
 </div>
-  <div class="tab_kind">
-    <ul class="list">
-      <li class="is_on">
-        <a href="#tabMenu" class="btn">메뉴</a>
-      </li>
-      <li>
-        <a href="#tabReview" class="btn">리뷰</a>
-      </li>	
-      <li>
-        <a href="#tabInfo" class="btn">정보</a>
-      </li>
-    </ul>
-    
-    <div class="cont_area">
-      <div id="tabMenu" class="cont">
-        <%@ include file="tabContent/TabMenu.jsp" %>
-      </div>
-      <div id="tabReview" class="cont">
-        <%@ include file="tabContent/TabReview.jsp" %>
-      </div>
-      <div id="tabInfo" class="cont">
-        <%@ include file="tabContent/TabInfo.jsp" %>
-      </div>
-    </div>
-  </div>
-</div>
-  
-  <script>
-    const tabList = document.querySelectorAll('.tab_kind .list li');
-    const contents = document.querySelectorAll('.tab_kind .cont_area .cont')
-    let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tabMenu 활성화)
-  
-    for(var i = 0; i < tabList.length; i++){
-      tabList[i].querySelector('.btn').addEventListener('click', function(e){
-        e.preventDefault();
-        for(var j = 0; j < tabList.length; j++){
-          // 나머지 버튼 클래스 제거
-          tabList[j].classList.remove('is_on');
-  
-          // 나머지 컨텐츠 display:none 처리
-          contents[j].style.display = 'none';
-        }
-  
-        // 버튼 관련 이벤트
-        this.parentNode.classList.add('is_on');
-  
-        // 버튼 클릭시 컨텐츠 전환
-        activeCont = this.getAttribute('href');
-        document.querySelector(activeCont).style.display = 'block';
-      });
-    }
-  </script>
-</body>
-</html>
  
 <!-- Modal -->
-<%-- <form action="${pageContext.request.contextPath}/cart/cart.me" method="Post" >
+<form action="${pageContext.request.contextPath}/cart/cart.me" method="Post" >
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content" style="height: 900px">
@@ -334,4 +255,4 @@ $(document).on('click', '#minusbtn', function(){
         $('input[name="option"]').prop('checked', false);
       });
     });
-</script> --%>
+</script>
