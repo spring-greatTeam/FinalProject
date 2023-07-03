@@ -1,6 +1,9 @@
 package com.project.fin.member.model.vo;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,13 +17,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Member {
-	private String memberId;
-	private String memberPwd;
-	private String memberName;
-	private Date memberBirthday;
+	private String userId;
+	private String userPwd;
+	private String userName;
+	private String email;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate birthday;
 	private String phone;
-	private String address;
-	private String nickname;
-	private String grade;
-	private int totalPrice;
+	private LocalDateTime createDate;
+	private boolean status;
 }

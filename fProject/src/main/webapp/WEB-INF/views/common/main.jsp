@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
+uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn"
+uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <html>
@@ -19,16 +20,8 @@
       rel="stylesheet"
       href="${pageContext.request.contextPath}/resources/css/main.css"
     />
-    
-    <!-- DB관련 redirect이후에 플래시 속성: alert창 띄우기 -->
-<c:if test="${not empty msg }">
-	<script type="text/javascript">
-		alert('${msg}');
-	</script>
-</c:if>
-
   </head>
-   <body>
+  <body>
     <header >
       <div class="hdiv" >
         <div>
@@ -41,24 +34,31 @@
       </div>
       
         <div id="member" >
-          <c:if test="${empty loginMember}">
+          <c:if test="${empty userName}">
             <div class="login" id="login">
-               <a href="${pageContext.request.contextPath}/member/login.me">로그인</a>
+              <a href="${pageContext.request.contextPath}/member/login.me"
+                >로그인</a
+              >
               <span>|</span>
-             <a href="${pageContext.request.contextPath}/member/memberEnroll.me">회원가입</a>
+              <a href="${pageContext.request.contextPath}/member/memberEnroll.me"
+                >회원가입</a
+              >
             </div>
           </c:if>
-          
-          <c:if test="${not empty loginMember}">
+          <c:if test="${not empty userName}">
             <div class="login">
               <ul id="user">
+              <a href="${pageContext.request.contextPath}/member/memberMyPage.me">
                 <span class="material-symbols-outlined custom-size" >
                 person
                 </span><br>
-               ${loginMember}님
-                <li><a href="${pageContext.request.contextPath}/member/memberMyPage.me">마이페이지</a></li>
+                ${userName}님 접속완료
+                <li>마이페이지</a></li>
                 <li>
-                  <a href="${pageContext.request.contextPath}/member/memberLogout.me">로그아웃</a>
+                  <a
+                    href="${pageContext.request.contextPath}/member/memberLogout.me"
+                    >로그아웃</a
+                  >
                 </li>
               </ul>
 
