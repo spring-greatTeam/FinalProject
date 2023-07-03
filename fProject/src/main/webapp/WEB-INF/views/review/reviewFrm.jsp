@@ -13,6 +13,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 			<div id="gdiv">리뷰작성</div>
       			<div id="hdiv">
 					 <form class="mb-3" name="${pageContext.request.contextPath}/member/review.me" id="myform" method="post">
+					 <div>아이디 : <input name="userId"></div>
 			      		<fieldset>
 			        		<span class="text-bold">별점을 선택해주세요</span>
 						        <input type="radio" name="rating" value="5" id="rate1" /><label for="rate1">★</label>

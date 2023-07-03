@@ -1,0 +1,45 @@
+
+
+.order-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.order-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-container th,
+.order-container td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.order-container th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.order-container td {
+  background-color: #fff;
+}
+
+.order-container td.write {
+  font-weight: bold;
+}
+
+.order-container td.reviewNo {
+  color: #999;
+}
+
+.order-container td.rating {
+  color: #f8c32f;
+  font-weight: bold;
+}
+
+.order-container td.content {
+  color: #555;
+}

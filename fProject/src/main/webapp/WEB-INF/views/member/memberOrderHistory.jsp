@@ -14,7 +14,21 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
       <div id="gdiv">주문내역</div>
       	<div id="hdiv">
       		<div class="order-container">
-      		<c:forEach items="${ordersList}" var="list">
+      		<%-- <c:forEach items="${ordersList}" var="list">
+		      <h2>주문번호: ${list.orderNo}</h2>
+		      <div class="order-item">주소: ${list.ordAddress }</div>
+		      <div class="order-item">가게명: ${list.storeName }</div>
+		      <div class="order-item">주문음식: ${list.menuName }</div>
+		      <div class="order-item">가격: ${list.price}</div>
+		      <div class="order-item">총 금액: ${list.totalPrice}</div>
+		      
+		      <form action="${pageContext.request.contextPath}/member/review.me" method="get">
+  				<input type="hidden" name="orderNo" value="${list.orderNo}">
+  				<button type="submit" class="review-button" name="reviewFrm">리뷰작성</button>
+			  </form>
+		      </c:forEach> --%>
+		      
+		      <c:forEach items="${ordersList}" var="list" >
 		      <h2>주문번호: ${list.orderNo}</h2>
 		      <div class="order-item">주소: ${list.ordAddress }</div>
 		      <div class="order-item">가게명: ${list.storeName }</div>
@@ -27,6 +41,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
   				<button type="submit" class="review-button" name="reviewFrm">리뷰작성</button>
 			  </form>
 		      </c:forEach>
+		      
 		    </div>
 		    
 		    <br>
