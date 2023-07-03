@@ -86,8 +86,9 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
   <script>
     const tabList = document.querySelectorAll('.tab_kind .list li');
     const contents = document.querySelectorAll('.tab_kind .cont_area .cont')
-    let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tabMenu 활성화)
-  
+    let activeCont = '#tabMenu'; // 현재 활성화 된 컨텐츠 (기본:#tabMenu 활성화)
+    document.querySelector(activeCont).style.display = 'block';
+
     for(var i = 0; i < tabList.length; i++){
       tabList[i].querySelector('.btn').addEventListener('click', function(e){
         e.preventDefault();

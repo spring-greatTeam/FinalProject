@@ -112,7 +112,7 @@ flex:1;
 		    marker.setPosition(latlng);
 
 		});
-	}, 1500);	//delay 미입력시 지도 깨짐현상 발생.
+	}, 2000);	//delay 미입력시 지도 깨짐현상 발생.
 	</script>
 </body>
 </html>
