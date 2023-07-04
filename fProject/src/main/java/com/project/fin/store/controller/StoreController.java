@@ -15,7 +15,7 @@ import com.project.fin.store.model.vo.Menu;
 import com.project.fin.store.model.vo.MenuGroup;
 import com.project.fin.store.model.vo.Options;
 import com.project.fin.store.model.vo.Store;
-@SessionAttributes({"cartList", "loginMember"})
+@SessionAttributes({"cartList", "userId"})
 @Controller
 @RequestMapping("/store")
 public class StoreController {
@@ -53,7 +53,7 @@ public class StoreController {
 		  // model로 json으로 값 넘겨서 modal에 사용
 		 List<Options> optionList = storeservice.selectOption(menuNo);
 		 model.addAttribute("optionList", optionList);
-		 return "storeList"; 
+		 return "jsonView"; 
 		}
 		  
 		 

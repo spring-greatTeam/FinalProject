@@ -19,7 +19,7 @@ public class Store {
 	private int category;
 	private String storeName;
 	private String address;
-	private int phone;
+	private String phone;
 	private int openTime;
 	private int closeTime;
 	private int minPrice;

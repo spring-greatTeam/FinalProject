@@ -55,7 +55,7 @@
                 <span class="material-symbols-outlined custom-size" >
                 person
                 </span><br>
-               ${loginMember}님
+               ${loginMember.nickname}님
                 <li><a href="${pageContext.request.contextPath}/member/memberMyPage.me">마이페이지</a></li>
                 <li>
                   <a href="${pageContext.request.contextPath}/member/memberLogout.me">로그아웃</a>

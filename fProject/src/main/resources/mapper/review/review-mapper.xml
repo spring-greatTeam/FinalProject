@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- <mapper namespace="member"> -->
+<mapper namespace="com.project.fin.review.dao.ReviewDao">
+	<resultMap type="review" id="reviewMap"></resultMap>
+	<insert id="insertReview">
+		insert into review values(seq_review.nextval, seq_orders.nextval, #{userId}, seq_store.nextval, #{rating}, SYSDATE, #{content})
+	</insert>
+	<select id="selectReviewList" resultMap="reviewMap">
+		select * from review where user_id = 'user01' order by write DESC
+	</select>
+	<select id="selectTotalRecord" resultType="_int">
+		select count(*) from review
+	</select>
+</mapper>
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+/* memberOrderHistory.css */
+
+/* Main container */
+#ediv {
+  background-color: #f9f7e8;
+  padding: 20px;
+}
+
+/* Order container */
+.order-container {
+  background-color: white;
+  padding: 20px;
+}
+
+/* Order item */
+.order-item {
+  margin-bottom: 10px;
+}
+
+/* Review button */
+.review-button {
+  background-color: yellow;
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Table */
+.order-table {
+  background-color: #f9f7e8;
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.order-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+/* Pagination */
+.pagination {
+  list-style-type: none;
+  margin: 20px 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination li {
+  margin-right: 5px;
+}
+
+.pagination li a {
+  background-color: yellow;
+  color: black;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.pagination li a:hover {
+  background-color: #ffd700;
+}

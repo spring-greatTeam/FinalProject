@@ -32,25 +32,22 @@
       </div>
 
       
-        <div id="member">
-          <c:if test="${empty userName}">
+         <div id="member" >
+          <c:if test="${empty loginMember}">
             <div class="login" id="login">
-              <a href="${pageContext.request.contextPath}/member/login.me"
-                >로그인</a
-              >
+               <a href="${pageContext.request.contextPath}/member/login.me">로그인</a>
               <span>|</span>
-              <a href="${pageContext.request.contextPath}/member/memberEnroll.me"
-                >회원가입</a
-              >
+             <a href="${pageContext.request.contextPath}/member/memberEnroll.me">회원가입</a>
             </div>
           </c:if>
+          
           <c:if test="${not empty loginMember}">
             <div class="login">
               <ul id="user">
                 <span class="material-symbols-outlined custom-size" >
                 person
                 </span><br>
-               ${loginMember}님
+               ${loginMember.nickname}님
                 <li><a href="${pageContext.request.contextPath}/member/memberMyPage.me">마이페이지</a></li>
                 <li>
                   <a href="${pageContext.request.contextPath}/member/memberLogout.me">로그아웃</a>
@@ -68,12 +65,12 @@
     <nav >
     <div>
        <ul id="menu">
-        <li>한식</li>
-        <li>중식</li>
-        <li>분식</li>
-        <li>양식</li>
-        <li>간편식</li>
-        <li>카페/디저트</li>
+        <a href="${pageContext.request.contextPath}/store/storeList.me?category=1"><li class="category">한식</li></a>
+        <a href="${pageContext.request.contextPath}/store/storeList.me?category=2"><li class="category">중식</li></a>
+        <a href="${pageContext.request.contextPath}/store/storeList.me?category=3"><li class="category">분식</li></a>
+        <a href="${pageContext.request.contextPath}/store/storeList.me?category=4"><li class="category">양식</li></a>
+        <a href="${pageContext.request.contextPath}/store/storeList.me?category=5"><li class="category">간편식</li></a>
+        <a href="${pageContext.request.contextPath}/store/storeList.me?category=6"><li class="category">카페/디저트</li></a>
        </ul>
     </div>
     </nav>

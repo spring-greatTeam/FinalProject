@@ -15,18 +15,17 @@ pageEncoding="UTF-8"%>
 <body>
 <div id="topdiv">
       <div id="logo">
+      	<h2 id="title">로그인</h2>
         <a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/resources/img/logo2-removebg.png" alt="이미지없음"></a>
       </div>
       <form action="${pageContext.request.contextPath}/member/login.me" method="post">
       <div>
       <div>
-	      <div>
-	        <div id="iddiv">
-	        <input class="login" id="id" name="memberId" placeholder="아이디">
+	        <div class="iddiv">
+	        <input class="login2" id="id" name="memberId" placeholder="아이디">
 	      </div>
-	      </div>
-	      <div>
-	        <input class="login" type="password" id="pwd" name="memberPwd" placeholder="비밀번호">
+	      <div class="iddiv">
+	        <input class="login2" type="password" id="pwd" name="memberPwd" style="border: 1px solid;" placeholder="비밀번호">
 	      </div>
 	    </div>
 	      <div>
