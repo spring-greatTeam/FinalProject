@@ -52,6 +52,11 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
       <div>카페/디저트</div>
     </a>
   </div>
+  <div class="owner">
+  	<a href="${pageContext.request.contextPath}/owner/ownerEnroll.me">
+      <div>사장님</div>
+    </a>
+  </div>
 </div>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp" />

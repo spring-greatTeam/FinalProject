@@ -70,7 +70,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
             </div>
           </c:if>
         </header>
-    <nav >
+    <nav>
     <div>
        <ul id="menu">
         <li>한식</li>
