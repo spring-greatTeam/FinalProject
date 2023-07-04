@@ -15,52 +15,55 @@ td{padding:10px;}
 <div style="border: 1px solid; height: 800px; margin-top: 40px">
 <div class="title">여기요</div>
 <div>
-	<table style="border: 1px solid;">
-		<tr>
-			<td>상호명</td>
-			<td><input name="storeName"></td>
-		</tr>
-		<tr>
-			<td>메뉴 카테고리</td>
-			<td><input type="number" name="category"></td>
-		</tr>
-		<tr>
-			<td>사업자 주소</td>
-			<td><input type="text" id="sample4_postcode" placeholder="우편번호">
-				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-				<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-				<input type="text" id="sample4_jibunAddress" placeholder="지번주소"><br>
-			<span id="guide" style="color:#999;display:none"></span>
-				<input type="text" id="sample4_detailAddress" placeholder="상세주소">
-				<input type="text" id="sample4_extraAddress" placeholder="참고항목"></td>
-				<td><input type="text" id="Address" placeholder="주소합친거"></td>
-
-		</tr>
-		<tr>
-			<td>전화번호</td>
-			<td><input name="phone"></td>
-		</tr>
-		<tr>
-			<td>영업 시작 시간</td>
-			<td><input type="number" name="openTime"></td>
-		</tr>
-		<tr>
-			<td>영업 종료 시간</td>
-			<td><input type="number" name="closeTime"></td>
-		</tr>
-		<tr>
-			<td>최소 주문 가격</td>
-			<td><input type="number" name="minPrice"></td>
-		</tr>
-		<tr>
-			<td>휴무일</td>
-			<td><input name="dayOff"></td>
-		</tr>
-		<tr>
-			<td>사장님 한마디</td>
-			<td><input name="content"></td>
-		</tr>
-	</table>
+	<form action="${pageContext.request.contextPath}/owner/insertOwner.me" method="post">
+		<table style="border: 1px solid;">
+			<tr>
+				<td>상호명</td>
+				<td><input name="storeName"></td>
+			</tr>
+			<tr>
+				<td>메뉴 카테고리</td>
+				<td><input type="number" name="category"></td>
+			</tr>
+			<tr>
+				<td>사업자 주소</td>
+				<td><input type="text" id="sample4_postcode" placeholder="우편번호">
+					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input type="text" id="Address" placeholder="주소합친거">
+					<input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="display:none;">
+					<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="display:none;"><br>
+				<span id="guide" style="color:#999;display:none"></span>
+					<input type="text" id="sample4_detailAddress" placeholder="상세주소" style="display:none;">
+					<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="display:none;"></td>
+					
+	
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input name="phone"></td>
+			</tr>
+			<tr>
+				<td>영업 시작 시간</td>
+				<td><input type="number" name="openTime"></td>
+			</tr>
+			<tr>
+				<td>영업 종료 시간</td>
+				<td><input type="number" name="closeTime"></td>
+			</tr>
+			<tr>
+				<td>최소 주문 가격</td>
+				<td><input type="number" name="minPrice"></td>
+			</tr>
+			<tr>
+				<td>휴무일</td>
+				<td><input name="dayOff"></td>
+			</tr>
+			<tr>
+				<td>사장님 한마디</td>
+				<td><input name="content"></td>
+			</tr>
+		</table>
+	</form>
 </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
