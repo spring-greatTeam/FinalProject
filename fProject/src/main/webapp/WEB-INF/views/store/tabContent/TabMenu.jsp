@@ -4,6 +4,9 @@ uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
 uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn"
 uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- 모달 -->
+<!DOCTYPE html>
+<html>
+<head>
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
   rel="stylesheet"
@@ -64,40 +67,41 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 	padding-left: 15px;
   }
 </style>
+</head>
 
 <div style=" height: 100%;">
   <div id="t1">
     <c:forEach items="${groupList}" var="group">
-      <div class="groupName">${group.groupName}</div>
-	<div >
-      <c:forEach items="${menuList}" var="menu">
-        <div class="menuList">	
-			<div id="menudiv">
-				<div id="mpdiv"style="width: 600px;">
-          <c:if test="${group.groupNo eq menu.categoryNo}">
-              <button style="font-size: 20px;"
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-                id="${menu.menuNo}"
-                data-store-no="${store.storeNo}"
-                data-member-userid="${sessionScope.userName}"
-                data-store-name="${store.storeName}"
-                data-menu-name="${menu.menuName}"
-                data-menu-price="${menu.price}"
-                data-menu-no="${menu.menuNo}"
-              >
-                ${menu.menuName}
-              </button>
-            <div id="menuprice">${menu.price} 원</div>
-		</div>
-            <div id="imgdiv">이미지</div>
-	</div>
-          </c:if>
+    	<div class="groupName">${group.groupName}</div>
+		<div>
+      	<c:forEach items="${menuList}" var="menu">
+        	<div class="menuList">	
+				<div id="menudiv">
+					<div id="mpdiv"style="width: 600px;">
+          				<c:if test="${group.groupNo eq menu.categoryNo}">
+              				<button style="font-size: 20px;"
+                				type="button"
+                				class="btn btn-primary"
+                				data-bs-toggle="modal"
+                				data-bs-target="#staticBackdrop"
+                				id="${menu.menuNo}"
+                				data-store-no="${store.storeNo}"
+                				data-member-userid="${sessionScope.userName}"
+                				data-store-name="${store.storeName}"
+                				data-menu-name="${menu.menuName}"
+                				data-menu-price="${menu.price}"
+                				data-menu-no="${menu.menuNo}">
+                					${menu.menuName}
+              				</button>
+            				<div id="menuprice">${menu.price} 원</div>
+            			</c:if>
+					</div>
+            		<div id="imgdiv">이미지</div>
+            	</div>
+			</div>
+        </c:forEach>
         </div>
       </c:forEach>
-    </c:forEach>
   </div>
 </div>
 
@@ -354,3 +358,4 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
         });
       });
 </script>
+</html>
