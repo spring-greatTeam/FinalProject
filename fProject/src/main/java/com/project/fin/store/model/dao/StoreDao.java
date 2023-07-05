@@ -18,4 +18,6 @@ public interface StoreDao {
 
 	List<MenuGroup> selectgroupList(int storeNo);
 
+	int insertStore(Store store);
+
 }

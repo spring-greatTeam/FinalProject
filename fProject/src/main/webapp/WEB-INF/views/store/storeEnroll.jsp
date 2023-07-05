@@ -15,21 +15,21 @@ td{padding:10px;}
 <div style="border: 1px solid; height: 800px; margin-top: 40px">
 <div class="title">여기요</div>
 <div>
-	<form action="${pageContext.request.contextPath}/owner/insertOwner.me" method="post">
+	<form action="${pageContext.request.contextPath}/store/storeEnroll.me" method="post">
 		<table style="border: 1px solid;">
 			<tr>
 				<td>상호명</td>
-				<td><input name="storeName"></td>
+				<td><input name="storeName" required></td>
 			</tr>
-			<tr>
+		<!-- 	<tr>
 				<td>메뉴 카테고리</td>
-				<td><input type="number" name="category"></td>
-			</tr>
+				<td><input type="number" name="category" required></td>
+			</tr> -->
 			<tr>
 				<td>사업자 주소</td>
 				<td><input type="text" id="sample4_postcode" placeholder="우편번호">
 					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="Address" placeholder="주소합친거">
+					<input type="text" id="Address" placeholder="주소합친거" required>
 					<input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="display:none;">
 					<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="display:none;"><br>
 				<span id="guide" style="color:#999;display:none"></span>
@@ -40,27 +40,30 @@ td{padding:10px;}
 			</tr>
 			<tr>
 				<td>전화번호</td>
-				<td><input name="phone"></td>
+				<td><input name="phone" required></td>
 			</tr>
 			<tr>
 				<td>영업 시작 시간</td>
-				<td><input type="number" name="openTime"></td>
+				<td><input type="number" name="openTime" required></td>
 			</tr>
 			<tr>
 				<td>영업 종료 시간</td>
-				<td><input type="number" name="closeTime"></td>
+				<td><input type="number" name="closeTime" required></td>
 			</tr>
 			<tr>
 				<td>최소 주문 가격</td>
-				<td><input type="number" name="minPrice"></td>
+				<td><input type="number" name="minPrice" required></td>
 			</tr>
 			<tr>
 				<td>휴무일</td>
-				<td><input name="dayOff"></td>
+				<td><input name="dayOff" required></td>
 			</tr>
 			<tr>
 				<td>사장님 한마디</td>
-				<td><input name="content"></td>
+				<td><input name="content" required></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="등록" required></td>
 			</tr>
 		</table>
 	</form>

@@ -32,4 +32,19 @@
 	  where STORE_NO = #{storeNo}
 	  </select>
 	  
+  	 <insert id="insertStore">
+	 INSERT INTO STORE
+	 VALUES (
+	   	SEQ_STORE.NEXTVAL,
+		#{CATEGORY},
+		#{STORENAME},
+		#{ADDRESS},
+		#{PHONE},
+		#{OPENTIME},
+		#{CLOSETIME},
+		#{MINPRICE},
+		#{DAYOFF},
+		#{CONTENT}
+	 )
+	 </insert>
   </mapper>

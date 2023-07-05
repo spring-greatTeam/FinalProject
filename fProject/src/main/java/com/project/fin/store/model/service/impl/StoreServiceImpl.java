@@ -35,5 +35,10 @@ public class StoreServiceImpl implements StoreService {
 	public List<MenuGroup> selectgroupList(int storeNo) {
 		return storedao.selectgroupList(storeNo);
 	}
+
+	@Override
+	public int insertStore(Store store) {
+		return storedao.insertStore(store);
+	}
 	
 }

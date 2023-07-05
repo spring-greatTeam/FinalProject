@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.project.fin.store.model.service.StoreService;
 import com.project.fin.store.model.vo.Menu;
 import com.project.fin.store.model.vo.MenuGroup;
-
 import com.project.fin.store.model.vo.Store;
 @Controller
 @RequestMapping("/store")
@@ -54,5 +54,14 @@ public class StoreController {
 		
 		return "store/storeDetail";
 			
+	}
+	
+	@GetMapping("/storeEnroll.me")
+	public void storeEnroll() {}
+	
+	@PostMapping("/storeEnroll.me")
+	public String storeEnroll(Store store) {
+		int result = storeservice.insertStore(store);
+		return"store/storeEnroll";
 	}
 }

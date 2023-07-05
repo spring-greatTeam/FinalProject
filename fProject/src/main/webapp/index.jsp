@@ -53,7 +53,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
     </a>
   </div>
   <div class="owner">
-  	<a href="${pageContext.request.contextPath}/owner/ownerEnroll.me">
+  	<a href="${pageContext.request.contextPath}/store/storeEnroll.me">
       <div>사장님</div>
     </a>
   </div>
