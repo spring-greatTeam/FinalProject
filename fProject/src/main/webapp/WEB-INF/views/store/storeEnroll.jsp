@@ -21,10 +21,10 @@ td{padding:10px;}
 				<td>상호명</td>
 				<td><input name="storeName" required></td>
 			</tr>
-		<!-- 	<tr>
+		 	<tr>
 				<td>메뉴 카테고리</td>
 				<td><input type="number" name="category" required></td>
-			</tr> -->
+			</tr> 
 			<tr>
 				<td>사업자 주소</td>
 				<td><input type="text" id="sample4_postcode" placeholder="우편번호">

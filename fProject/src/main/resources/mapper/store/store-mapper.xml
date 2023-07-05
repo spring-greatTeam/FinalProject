@@ -36,15 +36,15 @@
 	 INSERT INTO STORE
 	 VALUES (
 	   	SEQ_STORE.NEXTVAL,
-		#{CATEGORY},
-		#{STORENAME},
-		#{ADDRESS},
-		#{PHONE},
-		#{OPENTIME},
-		#{CLOSETIME},
-		#{MINPRICE},
-		#{DAYOFF},
-		#{CONTENT}
+		#{category},
+		#{storeName},
+		#{address},
+		#{phone},
+		#{openTime},
+		#{closeTime},
+		#{minPrice},
+		#{dayOff},
+		#{content}
 	 )
 	 </insert>
   </mapper>
