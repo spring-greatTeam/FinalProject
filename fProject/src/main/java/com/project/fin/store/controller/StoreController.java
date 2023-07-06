@@ -55,13 +55,4 @@ public class StoreController {
 		return "store/storeDetail";
 			
 	}
-	
-	@GetMapping("/storeEnroll.me")
-	public void storeEnroll() {}
-	
-	@PostMapping("/storeEnroll.me")
-	public String storeEnroll(Store store) {
-		int result = storeservice.insertStore(store);
-		return"store/storeEnroll";
-	}
 }

@@ -36,9 +36,4 @@ public class StoreServiceImpl implements StoreService {
 		return storedao.selectgroupList(storeNo);
 	}
 
-	@Override
-	public int insertStore(Store store) {
-		return storedao.insertStore(store);
-	}
-	
 }

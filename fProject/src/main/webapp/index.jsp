@@ -53,8 +53,13 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
     </a>
   </div>
   <div class="owner">
-  	<a href="${pageContext.request.contextPath}/store/storeEnroll.me">
-      <div>사장님</div>
+  	<a href="${pageContext.request.contextPath}/owner/storeEnroll.me">
+      <div>사장님 가게 등록</div>
+    </a>
+  </div> 
+  <div class="owner">
+  	<a href="${pageContext.request.contextPath}/owner/menuGroupForm.me">
+      <div>가게 메뉴 카테고리 등록</div>
     </a>
   </div>
 </div>

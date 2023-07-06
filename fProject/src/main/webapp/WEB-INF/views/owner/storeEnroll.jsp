@@ -15,7 +15,7 @@ td{padding:10px;}
 <div style="border: 1px solid; height: 800px; margin-top: 40px">
 <div class="title">여기요</div>
 <div>
-	<form action="${pageContext.request.contextPath}/store/storeEnroll.me" method="post">
+	<form action="${pageContext.request.contextPath}/owner/storeEnroll.me" method="post">
 		<table style="border: 1px solid;">
 			<tr>
 				<td>상호명</td>
@@ -24,20 +24,24 @@ td{padding:10px;}
 		 	<tr>
 				<td>메뉴 카테고리</td>
 				<td><input type="number" name="category" required></td>
-			</tr> 
+			</tr>
+			
 			<tr>
+				<td>사업자 주소</td>
+				<td><input name="address"></td>
+			</tr>
+			
+			<!-- <tr>
 				<td>사업자 주소</td>
 				<td><input type="text" id="sample4_postcode" placeholder="우편번호">
 					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="Address" placeholder="주소합친거" required>
-					<input type="text" id="sample4_roadAddress" placeholder="도로명주소" style="display:none;">
-					<input type="text" id="sample4_jibunAddress" placeholder="지번주소" style="display:none;"><br>
+					<input type="text" id="address" placeholder="주소합친거" required>
+					<input type="hidden" id="sample4_roadAddress" placeholder="도로명주소">
+					<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"><br>
 				<span id="guide" style="color:#999;display:none"></span>
-					<input type="text" id="sample4_detailAddress" placeholder="상세주소" style="display:none;">
-					<input type="text" id="sample4_extraAddress" placeholder="참고항목" style="display:none;"></td>
-					
-	
-			</tr>
+					<input type="hidden" id="sample4_detailAddress" placeholder="상세주소">
+					<input type="hidden" id="sample4_extraAddress" placeholder="참고항목"></td>
+			</tr> -->
 			<tr>
 				<td>전화번호</td>
 				<td><input name="phone" required></td>
@@ -99,7 +103,7 @@ td{padding:10px;}
                 document.getElementById('sample4_postcode').value = data.zonecode;
                 document.getElementById("sample4_roadAddress").value = roadAddr;
                 document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
-                document.getElementById("Address").value=data.zonecode+roadAddr+data.jibunAddress;
+                document.getElementById("address").value=data.zonecode+roadAddr+data.jibunAddress;
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 if(roadAddr !== ''){
                     document.getElementById("sample4_extraAddress").value = extraRoadAddr;
