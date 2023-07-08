@@ -7,6 +7,7 @@
 	  <resultMap type = "store" id="storeMap"></resultMap>
 	  <resultMap type="menu" id="menuMap"></resultMap>
 	  <resultMap type="menugroup" id="menuGroup"></resultMap>
+	  <resultMap type="Options" id="optionList"></resultMap>
 	  
 	  <select id = "selectStoreList" resultMap="storeMap">
 	  	SELECT *
@@ -19,32 +20,23 @@
 	  	  FROM STORE
 	  	 WHERE STORE_NO = #{storeNo}
 	  </select>
-	  
+	   
 	  <select id="selectMenuList" resultMap="menuMap">
 	  select *
 	  from menu
 	  where STORE_NO = #{storeNo}
-	  </select>
+	  </select> 
 	  
-	  <select id="selectgroupList" resultMap="menuGroup">
+	   <select id="selectgroupList" resultMap="menuGroup">
 	  SELECT *
 	  FROM  MENU_GROUP
 	  where STORE_NO = #{storeNo}
-	  </select>
+	  </select> 
 	  
-  	 <insert id="insertStore">
-	 INSERT INTO STORE
-	 VALUES (
-	   	SEQ_STORE.NEXTVAL,
-		#{category},
-		#{storeName},
-		#{address},
-		#{phone},
-		#{openTime},
-		#{closeTime},
-		#{minPrice},
-		#{dayOff},
-		#{content}
-	 )
-	 </insert>
+	  <select id="selectOption" resultMap="optionList">
+	  select *
+	  from options
+	  where menu_no = #{menuNo}
+	  </select> 
+	 
   </mapper>

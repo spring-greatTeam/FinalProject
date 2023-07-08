@@ -1,0 +1,91 @@
+/* form 전체 디자인 */
+#frmdiv {
+	margin: 50px;
+}
+
+/* PwdUdt.jsp */
+#pwdfrmdiv {
+	margin-top: 200px;
+	margin-right: 200px;
+}
+
+/* 000님의 회원정보 */
+#infoTitle {
+	font-size: 30px;
+	margin-bottom: 30px;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/* PwdUdt.jsp */
+.tbl {
+	width: 120%;
+	border-collapse: collapse;
+}
+
+.table th,
+.table td {
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+.tbl th,
+.tbl td {
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+/* 비밀번호 수정 버튼 */
+.editBtn {
+	border: none;
+	background-color: transparent;
+	color: blue;
+	cursor: pointer;
+}
+
+/* 전화번호 정규식 메시지 */
+#phoneLimit {
+	color: red;
+}
+
+/* 주소 input 박스 */
+#addr,
+#detailAddr {
+	width: 70%;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+/* 주소찾기 버튼 */
+#serchAddr {
+	padding: 5px 10px;
+	background-color: gray;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+#serchAddr:hover {
+	background-color: #ccc;
+}
+
+/* 정보 수정 완료 버튼 */
+#updateBtn {
+	display: block;
+	width: 40%;
+	margin-top: 30px;
+	padding: 10px 20px;
+	background-color: #4caf50;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* 정보 수정 완료 버튼 호버 */
+#updateBtn:hover {
+	background-color: darkgreen;
+}

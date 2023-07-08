@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+리뷰페이지
 </body>
 </html>

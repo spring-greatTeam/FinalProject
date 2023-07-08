@@ -14,8 +14,8 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Store {
-
 	private int storeNo;
+	private String businessNumber;
 	private int category;
 	private String storeName;
 	private String address;
@@ -25,5 +25,5 @@ public class Store {
 	private int minPrice;
 	private String dayOff;
 	private String content;
-
+	
 }

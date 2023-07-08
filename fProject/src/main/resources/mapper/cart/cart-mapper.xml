@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.project.fin.cart.model.dao.CartDao">
+  	<resultMap type="Cart" id="cartMap"></resultMap>
+
+	<select id="cartList" resultMap="cartMap">
+	select *
+	from cart
+	where member_id = #{memberId}
+	</select>
+	
+	<insert id="insertCart">
+	insert into cart values(
+  		SEQ_CART.nextval,
+  		#{memberId},
+  		#{storeName},
+  		#{storeNo},
+  		#{menuName},
+  		#{totalPrice},
+  		#{quantity},
+  		#{opTitle},
+  		#{opName}
+  	)
+	</insert>
+	
+	<update id="updateQuantity">
+    UPDATE cart
+    SET quantity = #{arg0}
+    WHERE store_no = #{arg1}
+    AND menu_name = #{arg2}
+    AND op_title = #{arg3}
+    AND op_name = #{arg4}
+</update>
+<delete id="cartDelete" parameterType="int">
+  DELETE FROM cart
+  WHERE cart_no = #{cartNo}
+</delete>
+  </mapper>

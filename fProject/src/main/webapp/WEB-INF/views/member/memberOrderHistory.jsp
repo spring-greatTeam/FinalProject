@@ -8,7 +8,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 <div id="ediv">
   <jsp:include page="/WEB-INF/views/common/mypage.jsp" />
   <div id="fdiv">
-    <div>${userName} 님 환영합니다.</div>
+    <div>${loginMember.nickname} 님 환영합니다.</div>
     <div>
       <div id="gdiv">주문내역</div>
       <div id="hdiv">주문내역 리스트</div>

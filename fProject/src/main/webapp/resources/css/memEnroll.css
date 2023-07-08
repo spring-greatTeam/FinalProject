@@ -1,0 +1,87 @@
+/* 회원가입 폼 스타일 */
+#container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* 회원가입 제목 스타일 */
+#enrollTitle {
+  font-size: 50px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+/* 테이블 스타일 */
+.table {
+	width: 55%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+/* 테이블 셀 스타일 */
+th, td {
+	padding: 20px;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
+}
+
+/* 입력 필드 스타일 */
+input {
+  width: 80%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  margin-right: 20%;
+  margin-left: 10px;
+}
+
+/* 가이드 메시지 스타일 */
+.guide {
+  display: none;
+  font-size: 20px;
+  color: green;
+  margin-left: 10px;
+}
+
+/* 사용 가능한 메시지 스타일 */
+.ok {
+  color: green;
+}
+
+#pwdLimit, #pwdRe, #phoneLimit {
+	font-size: 20px;
+}
+
+/* 사용 불가능한 메시지 스타일 */
+.error {
+  color: red;
+}
+.limit {
+  color: red;
+}
+
+/* 회원가입 완료 버튼 스타일 */
+#enrollBtn {
+  display: block; /* 가운데로 위치 이동 */
+  padding: 10px 70px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  background-color: #FEFBB8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 회원가입 완료 버튼 호버 스타일 */
+#enrollBtn:hover {
+  background-color: #E36509;
+}  
+
+/* 우편번호 찾기 버튼 호버 스타일 */
+#serchAddr:hover {
+	background-color: #ccc;
+}

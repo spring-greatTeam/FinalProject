@@ -1,7 +1,10 @@
 package com.project.fin.owner.model.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
+import com.project.fin.owner.model.vo.Owner;
 import com.project.fin.store.model.vo.Menu;
 import com.project.fin.store.model.vo.MenuGroup;
 import com.project.fin.store.model.vo.Store;
@@ -13,4 +16,15 @@ public interface OwnerDao {
 
 	int insertMenuGroup(MenuGroup menuGroup);
 
+	int insertMenu(Menu menu);
+	
+	Owner selectOneOwner(String memberId);
+
+	int insertOwner(Owner owner);
+
+	int updateOwner(Owner owner);
+
+	int updatePwd(Owner owner);
+
+	List<MenuGroup> selectMenuGroup(int storeNo);
 }

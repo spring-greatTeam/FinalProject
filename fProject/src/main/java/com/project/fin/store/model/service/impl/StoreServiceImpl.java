@@ -1,5 +1,6 @@
 package com.project.fin.store.model.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import com.project.fin.store.model.dao.StoreDao;
 import com.project.fin.store.model.service.StoreService;
 import com.project.fin.store.model.vo.Menu;
 import com.project.fin.store.model.vo.MenuGroup;
+import com.project.fin.store.model.vo.Options;
 import com.project.fin.store.model.vo.Store;
 
 @Service
@@ -35,5 +37,20 @@ public class StoreServiceImpl implements StoreService {
 	public List<MenuGroup> selectgroupList(int storeNo) {
 		return storedao.selectgroupList(storeNo);
 	}
+
+	@Override
+	public List<Options> selectOption(int menuNo) {
+		
+		return storedao.selectOption(menuNo);
+	}
+
+
+	
+
+
+
+
+
+
 
 }

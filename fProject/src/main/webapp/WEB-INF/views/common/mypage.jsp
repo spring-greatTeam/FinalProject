@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 
-<link
-  rel="stylesheet"
-  href="${pageContext.request.contextPath}/resources/css/mypage.css"
-/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage.css" />
 
 <!-- 테스트 -->
 
@@ -18,7 +15,7 @@ pageEncoding="UTF-8"%>
       </ul>
       <ul>
         회원정보
-        <a href="${pageContext.request.contextPath}/member/memberUpdate.me"><li>회원정보 수정</li></a>
+        <a href="${pageContext.request.contextPath}/member/memberEnter.me"><li>회원정보 수정</li></a>
         <a href="${pageContext.request.contextPath}/member/memberDelete.me"><li>회원 탈퇴</li></a>
       </ul>
       <ul>

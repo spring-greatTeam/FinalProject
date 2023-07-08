@@ -17,15 +17,24 @@ td{padding:10px;}
 <div>
 	<form action="${pageContext.request.contextPath}/owner/storeEnroll.me" method="post">
 		<table style="border: 1px solid;">
+		
 			<tr>
-				<td>상호명</td>
-				<td><input name="storeName" required></td>
+				<td>가게 번호</td>
+				<td><input name="storeNo" value="${loginMember.storeNo}" required></td>
+			</tr>
+			<tr>
+				<td>사업자 번호</td>
+				<td><input name="businessNumber" value="${loginMember.businessNumber}" required></td>
 			</tr>
 		 	<tr>
 				<td>메뉴 카테고리</td>
 				<td><input type="number" name="category" required></td>
 			</tr>
-			
+			<tr>
+				<td>상호명</td>
+				<td><input name="storeName" required></td>
+			</tr>
+
 			<tr>
 				<td>사업자 주소</td>
 				<td><input name="address"></td>

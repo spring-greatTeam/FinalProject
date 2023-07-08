@@ -4,10 +4,26 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.project.fin.owner.model.dao.OwnerDao">
+	<resultMap type="owner" id="ownerMap"></resultMap>
+	<resultMap type="menugroup" id="menugroupMap"></resultMap>
+	
+	<select id="selectOneOwner" resultMap="ownerMap">
+		select *
+			from OWNER
+		where member_id = #{memberId}
+	</select>
+	
+	<select id="selectMenuGroup" resultMap="menugroupMap">
+		SELECT *
+		FROM MENU_GROUP
+		WHERE STORE_NO = #{storeNo} 
+	</select>
+	
 	<insert id="insertStore">
 		INSERT INTO STORE
 		VALUES (
-			SEQ_STORE.NEXTVAL,
+			#{storeNo},
+			#{businessNumber},
  			#{category},
 			#{storeName},
 			#{address},
@@ -20,6 +36,20 @@
 		)
 	</insert>
 	
+	<insert id="insertOwner">
+		INSERT INTO OWNER
+		VALUES (
+			SEQ_STORE.NEXTVAL,
+ 			#{memberId},
+			#{memberPwd},
+			#{memberName},
+			#{memberBirthday},
+			#{phone},
+			#{address},
+			#{businessNumber}
+		)
+	</insert>
+	
 	<insert id="insertMenuGroup">
 		INSERT INTO MENU_GROUP
 		VALUES (
@@ -28,4 +58,17 @@
 			#{groupName}
 		)
 	</insert>
+	
+	<insert id="insertMenu">
+		INSERT INTO MENU
+		VALUES (
+			SEQ_MENU.NEXTVAL,
+			#{storeNo},
+			#{categoryNo},
+			#{menuName},
+			#{price}
+		)
+	</insert>
+	
+	
 </mapper>

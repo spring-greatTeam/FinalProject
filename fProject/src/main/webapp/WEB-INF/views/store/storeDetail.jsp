@@ -33,13 +33,13 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
 <div class="img">
 <c:choose>
 	<c:when test="${store.storeNo==1}">
-		<img src="${pageContext.request.contextPath}/resources/upload/store/달시루_배경X.png" style="width:200px;height:200px;vertical-align:middle;"/>
+		<img src="${pageContext.request.contextPath}/resources/upload/store/달시루_배경X.jpg" style="width:200px;height:200px;vertical-align:middle;"/>
 	</c:when>
 	<c:when test="${store.storeNo==2}">
-		<img src="${pageContext.request.contextPath}/resources/upload/store/바른김밥_배경X.png" style="width:200px;height:200px;vertical-align:middle;"/>
+		<img src="${pageContext.request.contextPath}/resources/upload/store/바른김밥_배경X.jpg" style="width:200px;height:200px;vertical-align:middle;"/>
 	</c:when>
 	<c:otherwise>
-		<img src="${pageContext.request.contextPath}/resources/upload/store/당산김밥_배경X.png" style="width:200px;height:200px;vertical-align:middle;"/>
+		<img src="${pageContext.request.contextPath}/resources/upload/store/당산김밥_배경X.jpg" style="width:200px;height:200px;vertical-align:middle;"/>
 	</c:otherwise>
 </c:choose>
 </div>

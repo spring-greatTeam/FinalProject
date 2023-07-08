@@ -59,10 +59,10 @@ body {
   font-size: 20px;
 }
 
-#iddiv {
-/*   position: relative; */
-  display: flex;
-  text-align: center;
+.iddiv {
+	position: relative;
+ 	display: flex;
+	text-align: center;
 }
 
 #resetbtn {

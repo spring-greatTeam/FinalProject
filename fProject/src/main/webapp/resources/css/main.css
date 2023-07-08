@@ -44,11 +44,24 @@ header {
   background-color: white;
   border-radius: 10px;
 }
-#member {
+/* #member {
   width: 350px;
   height: 150px;
   margin-right: 0;
   margin-top: 20px;
+} */
+.nav{
+  margin-right:0;
+  display:flex;
+  width:230px;
+}
+.nav>li{
+  flex:1;
+  text-align:center;
+}
+.submenu{
+	display:none;
+	padding:0px;
 }
 .login {
   float: right;
