@@ -24,7 +24,7 @@ import com.project.fin.store.model.vo.Store;
 
 @Controller
 @RequestMapping("/owner")
-@SessionAttributes({"userId","loginOwner"})
+@SessionAttributes({"userId","loginOwner","group"})
 
 public class OwnerController {
 		
@@ -75,8 +75,12 @@ public class OwnerController {
 	 }
 	 
 	 @GetMapping("/menuGroupSubmit.me")
-	 public String menuGroupSubmit(MenuGroup menuGroup) {
+	 public String menuGroupSubmit(MenuGroup menuGroup,Model model,int storeNo) {
 		 int result=ownerService.insertMenuGroup(menuGroup);
+		 List<MenuGroup> group = ownerService.selectGroupList(storeNo);	// radio 버튼으로 메뉴 카테고리 선택하려면 MENU_GROUP의 값을 가져와야함.
+		 model.addAttribute("group",group);	// 가져온 MENU_GROUP의 값을 session으로 menuForm.jsp에 넘겨줌.
+		 System.out.println("group: "+group); 
+		 
 		 return "owner/menuForm";
 	 }
 	 

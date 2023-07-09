@@ -5,11 +5,18 @@
   
 <mapper namespace="com.project.fin.owner.model.dao.OwnerDao">
 	<resultMap type="owner" id="ownerMap"></resultMap>
+	<resultMap type="menugroup" id="menugroupMap"></resultMap>
 	
 	<select id="selectOneOwner" resultMap="ownerMap">
 		select *
 			from OWNER
 		where owner_id = #{ownerId}
+	</select>
+	
+	<select id="selectGroupList" resultMap="menugroupMap">
+		SELECT *
+		FROM MENU_GROUP
+		WHERE STORE_NO = #{storeNo}
 	</select>
 
 	<insert id="insertStore">

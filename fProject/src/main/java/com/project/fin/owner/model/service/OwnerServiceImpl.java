@@ -52,4 +52,9 @@ public class OwnerServiceImpl implements OwnerService{
 		return ownerDao.updatePwd(owner);
 	}
 
+	@Override
+	public List<MenuGroup> selectGroupList(int storeNo) {
+		return ownerDao.selectGroupList(storeNo);
+	}
+
 }

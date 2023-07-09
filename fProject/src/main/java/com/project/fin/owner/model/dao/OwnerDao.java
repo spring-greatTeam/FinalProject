@@ -25,4 +25,6 @@ public interface OwnerDao {
 	int updateOwner(Owner owner);
 
 	int updatePwd(Owner owner);
+
+	List<MenuGroup> selectGroupList(int storeNo);
 }
