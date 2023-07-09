@@ -18,14 +18,14 @@ pageEncoding="UTF-8"%>
       	<h2 id="title">사장님 로그인</h2>
         <a href="${pageContext.request.contextPath}"><img src="${pageContext.request.contextPath}/resources/img/logo2-removebg.png" alt="이미지없음"></a>
       </div>
-      <form action="${pageContext.request.contextPath}/owner/login.me" method="post">
+      <form action="${pageContext.request.contextPath}/owner/ownerLogin.me" method="post">
       <div>
       <div>
 	        <div calss="iddiv">
-	        <input class="login2" id="id" name="memberId" placeholder="아이디">
+	        <input class="login2" id="id" name="ownerId" placeholder="아이디">
 	      </div>
 	      <div calss ="iddiv">
-	        <input class="login2" type="password" id="pwd" name="memberPwd" placeholder="비밀번호">
+	        <input class="login2" type="password" id="pwd" name="ownerPwd" placeholder="비밀번호">
 	      </div>
 	    </div>
 	      <div>
@@ -33,9 +33,9 @@ pageEncoding="UTF-8"%>
 	      </div>
    
       <div id="bottom">
-        <a href="${pageContext.request.contextPath}/member/memberFind.me">아이디/비밀번호찾기</a>
+        <a href="${pageContext.request.contextPath}/owner/ownerFind.me">아이디/비밀번호찾기</a>
         <a>|</a>
-        <a href="${pageContext.request.contextPath}/member/memberEnroll.me">회원가입</a>
+        <a href="${pageContext.request.contextPath}/owner/ownerEnroll.me">회원가입</a>
       </div>
       </div>
        </form>

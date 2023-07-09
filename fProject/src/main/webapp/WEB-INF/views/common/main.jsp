@@ -34,20 +34,20 @@
         </div>
       </div>
       
-      <c:if test="${empty loginMember}">
+      <c:if test="${empty loginMember && empty loginOwner}">
 	      <nav>
 		      <ul class="nav">
 		      	<li><a href="#">로그인</a>
 		      		<ul class="submenu">
 		      			<li><a href="${pageContext.request.contextPath}/member/login.me">고객님 로그인</a></li> 
-		      			<li><a href="${pageContext.request.contextPath}/owner/login.me">사장님 로그인</a></li>
+		      			<li><a href="${pageContext.request.contextPath}/owner/ownerLogin.me">사장님 로그인</a></li>
 		      		</ul>
 		      	</li>
 		      	
 		      	<li><a href="#">회원가입</a>
 		      		<ul class="submenu">
 		      			<li><a href="${pageContext.request.contextPath}/member/memberEnroll.me">고객 회원가입</a></li>
-		      			<li><a href="${pageContext.request.contextPath}/owner/ownerMemberEnroll.me">사장님 회원가입</a></li>
+		      			<li><a href="${pageContext.request.contextPath}/owner/ownerEnroll.me">사장님 회원가입</a></li>
 		      		</ul>
 		      	</li>
 		      </ul>
@@ -66,17 +66,27 @@
             </div>
           </c:if> --%>
           
-          <c:if test="${not empty loginMember}">
+          <c:if test="${not empty loginMember || not empty loginOwner}">
             <div class="login">
               <ul id="user">
                 <span class="material-symbols-outlined custom-size" >
                 person
                 </span><br>
-               ${loginMember.memberName}님
-                <li><a href="${pageContext.request.contextPath}/member/memberMyPage.me">마이페이지</a></li>
-                <li>
-                  <a href="${pageContext.request.contextPath}/member/memberLogout.me">로그아웃</a>
-                </li>
+                <c:if test="${not empty loginMember}">
+	               ${loginMember.memberName}님
+	               <li><a href="${pageContext.request.contextPath}/member/memberMyPage.me">마이페이지</a></li>
+	                <li>
+	                  <a href="${pageContext.request.contextPath}/member/memberLogout.me">로그아웃</a>
+	                </li>
+               	</c:if>
+               	<c:if test="${not empty loginOwner}">
+	               	${loginOwner.ownerName}님
+	               	<li><a href="${pageContext.request.contextPath}/owner/ownerMyPage.me">마이페이지</a></li>
+	                <li>
+	                  <a href="${pageContext.request.contextPath}/owner/ownerLogout.me">로그아웃</a>
+	                </li>
+               	</c:if>
+                
               </ul>
 
               <ul id="user" >

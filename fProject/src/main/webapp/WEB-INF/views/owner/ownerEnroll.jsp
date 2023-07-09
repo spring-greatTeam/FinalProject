@@ -11,12 +11,12 @@ pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/common/main.jsp" />
 	<div id="container">
 		<h2 id="enrollTitle" >사장님 회원가입</h2>
-		<form action="${pageContext.request.contextPath}/owner/ownerMemberEnroll.me" method="post" name="enrollfrm">
+		<form action="${pageContext.request.contextPath}/owner/ownerEnroll.me" method="post" name="enrollfrm">
 			<table class="table">
 				<tr>
 					<th scope="col">아이디</th>
 					<td scope="col">
-						<input name="memberId" placeholder="영문,숫자 4글자 이상" id="memberId" required>
+						<input name="ownerId" placeholder="영문,숫자 4글자 이상" id="ownerId" required>
 						<span class="guide ok">멋진 아이디네요!</span>
 						<span class="guide error">이미 사용중이거나 탈퇴한 아이디입니다.</span>
 						<span class="guide limit">형식이 맞지 않습니다.</span>
@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
 				<tr>
 					<th scope="col">비밀번호</th>
 					<td scope="col">
-						<input type="password" name="memberPwd" id="memberPwd" placeholder="영문+숫자+특수문자 8~16글자" required>
+						<input type="password" name="ownerPwd" id="ownerPwd" placeholder="영문+숫자+특수문자 8~16글자" required>
 						<span id="pwdLimit"></span>
 					</td>
 				</tr>
@@ -39,13 +39,13 @@ pageEncoding="UTF-8"%>
 					<tr>
 					<th scope="col">이름</th>
 					<td scope="col">
-						<input name="memberName" required>
+						<input name="ownerName" required>
 					</td>
 				</tr>
 					<tr>
 					<th scope="col">생년월일</th>
 					<td scope="col">
-						<input type="date" name="memberBirthday" required>
+						<input type="date" name="ownerBirthday" required>
 					</td>
 				</tr>
 					<tr>
@@ -65,7 +65,7 @@ pageEncoding="UTF-8"%>
 				</tr>
 				<tr>
 					<th scope="col">사업자번호</th>
-					<td><input name="BusinessNumber" placeholder="사업자번호" required></td>
+					<td><input name="businessNumber" placeholder="사업자번호" required></td>
 				</tr>
 			</table>
 			<button class="btn btn-outline-success" type="submit" id="enrollBtn" onclick="inputCheck();" >회원가입 완료</button>
@@ -76,14 +76,14 @@ pageEncoding="UTF-8"%>
 	
 <script type="text/javascript">
 	/* 아이디 중복 체크, 표현식 제한 */
-document.querySelector("#memberId").addEventListener("keyup",(e) => { 
-    $("#memberId").focus();
+document.querySelector("#ownerId").addEventListener("keyup",(e) => { 
+    $("#ownerId").focus();
     const ok = document.querySelector(".ok");
     const error = document.querySelector(".error");
     const limit = document.querySelector(".limit");
     const memberId = e.target;
     
-    if(memberId.value.length < 4 || !/^[a-zA-Z0-9]+$/.test(memberId.value)) {
+    if(ownerId.value.length < 4 || !/^[a-zA-Z0-9]+$/.test(ownerId.value)) {
         ok.style.display = "none";
         error.style.display = "none";
         limit.style.display = "inline";
@@ -92,11 +92,11 @@ document.querySelector("#memberId").addEventListener("keyup",(e) => {
     
     $.ajax({
         url : "${pageContext.request.contextPath}/owner/checkId.do",
-        data : {memberId : memberId.value},
+        data : {ownerId : ownerId.value},
         dataType : "json",
         success(result) {
             console.log(result);
-            const {memberId, available} = result; 
+            const {ownerId, available} = result; 
             
             if(available) {
                 ok.style.display = "inline";
@@ -113,17 +113,17 @@ document.querySelector("#memberId").addEventListener("keyup",(e) => {
 });
 
 /* 비밀번호 정규식 */
-$("#memberPwd").blur(function() {
+$("#ownerPwd").blur(function() {
     let pwdCheck= /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
     
-    if ($("#memberPwd").val() == "") {
+    if ($("#ownerPwd").val() == "") {
         $("#pwdLimit").css("color", "red");
         $("#pwdLimit").text("비밀번호를 입력하세요.");
-        $("#memberPwd").focus();
-     } else if (!pwdCheck.test($("#memberPwd").val())) {
+        $("#ownerPwd").focus();
+     } else if (!pwdCheck.test($("#ownerPwd").val())) {
         $("#pwdLimit").css("color", "red");
 		$("#pwdLimit").text("비밀번호는 영문+숫자+특수문자 포함 8~16자리 입니다.");
-		$("#memberPwd").focus();
+		$("#ownerPwd").focus();
      } else {
         $("#pwdLimit").css("color", "green");
         $("#pwdLimit").text("안전한 비밀번호 입니다!");
@@ -135,7 +135,7 @@ $("#pwdCheck").blur(function() {
 	if($("#pwdCheck").val() == "") {
 		$("#pwdRe").css("color", "red");
 		$("#pwdRe").text("비밀번호 재확인이 필요합니다.");
-	} else if ($("#pwdCheck").val() == $("#memberPwd").val()) {
+	} else if ($("#pwdCheck").val() == $("#ownerPwd").val()) {
 		$("#pwdRe").css("color", "green");
 		$("#pwdRe").text("비밀번호가 일치합니다!")
 	} else {
@@ -187,14 +187,14 @@ function findAddr() {
 
 /* form에 입력한 값이 없으면 회원가입 되지 않게 하기 */
 function inputCheck() {
-	if(enrollfrm.memberId.value == "") {
+	if(enrollfrm.ownerId.value == "") {
 		alert("아이디를 입력해주세요");
-		enrollfrm.memberId.focus();
+		enrollfrm.ownerId.focus();
 		return;
 	}
-	if(enrollfrm.memberPwd.value == "") {
+	if(enrollfrm.ownerPwd.value == "") {
 		alert("비밀번호를 입력해주세요");
-		enrollfrm.memberPwd.focus();
+		enrollfrm.ownerPwd.focus();
 		return;
 	}
 	if(enrollfrm.pwdCheck.value == "") {
@@ -202,15 +202,15 @@ function inputCheck() {
 		enrollfrm.pwdCheck.focus();
 		return;
 	}
-	if(enrollfrm.memberPwd.value != enrollfrm.pwdCheck.value) {
+	if(enrollfrm.ownerPwd.value != enrollfrm.pwdCheck.value) {
 		alert("비밀번호가 일치하지 않습니다");
-		enrollfrm.memberPwd.value="";
-		enrollfrm.memberPwd.focus();
+		enrollfrm.ownerPwd.value="";
+		enrollfrm.ownerPwd.focus();
 		return;
 	}
-	if(enrollfrm.memberName.value == "") {
+	if(enrollfrm.ownerName.value == "") {
 		alert("이름을 입력해주세요");
-		enrollfrm.memberName.focus();
+		enrollfrm.ownerName.focus();
 		return;
 	}
 	if(enrollfrm.address.value == "") {

@@ -7,15 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="menuFormSubmit.me">
-		<table>
+	<form action="${pageContext.request.contextPath}/owner/menuFormSubmit.me">
+		<table border="1"; style="border-collapse:collapse;">
 			<tr>
 				<td>가게번호</td>
-				<td><input type="number" name="storeNo" value="${loginMember.storeNo}"></td>
+				<td><input type="number" name="storeNo" value="${loginOwner.storeNo}"></td>
 			</tr>
 			<tr>
 				<td>카테고리 번호</td>
-				<td><input type="number" name="categoryNo" value="${group.groupNo}"></td>
+				<td><input type="number" name="categoryNo"><br>
+					<div class="categoryNo">1: 대표메뉴, 2: 기본메뉴</div></td>
 			</tr>
 			<tr>
 				<td>메뉴명</td>
@@ -26,7 +27,7 @@
 				<td><input type="number" name="price"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="등록"></td>
+				<td colspan="2" style="text-align:center;"><input type="submit" value="등록"></td>
 			</tr>
 		</table>
 	</form>

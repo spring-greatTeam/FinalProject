@@ -16,10 +16,10 @@ import lombok.ToString;
 @ToString 
 public class Owner {
 	private int storeNo;	// 시퀀스 값
-	private String memberId;			
-	private String memberPwd;
-	private String memberName;
-	private Date memberBirthday;
+	private String ownerId;			
+	private String ownerPwd;
+	private String ownerName;
+	private Date ownerBirthday;
 	private String phone;
 	private String address;
 	private String businessNumber;

@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,71 +17,75 @@ td{padding:10px;}
 <div style="border: 1px solid; height: 800px; margin-top: 40px">
 <div class="title">여기요</div>
 <div>
-	<form action="${pageContext.request.contextPath}/owner/storeEnroll.me" method="post">
-		<table style="border: 1px solid;">
-		
-			<tr>
-				<td>가게 번호</td>
-				<td><input name="storeNo" value="${loginMember.storeNo}" required></td>
-			</tr>
-			<tr>
-				<td>사업자 번호</td>
-				<td><input name="businessNumber" value="${loginMember.businessNumber}" required></td>
-			</tr>
-		 	<tr>
-				<td>메뉴 카테고리</td>
-				<td><input type="number" name="category" required></td>
-			</tr>
-			<tr>
-				<td>상호명</td>
-				<td><input name="storeName" required></td>
-			</tr>
-
-			<tr>
-				<td>사업자 주소</td>
-				<td><input name="address"></td>
-			</tr>
-			
-			<!-- <tr>
-				<td>사업자 주소</td>
-				<td><input type="text" id="sample4_postcode" placeholder="우편번호">
-					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="address" placeholder="주소합친거" required>
-					<input type="hidden" id="sample4_roadAddress" placeholder="도로명주소">
-					<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"><br>
-				<span id="guide" style="color:#999;display:none"></span>
-					<input type="hidden" id="sample4_detailAddress" placeholder="상세주소">
-					<input type="hidden" id="sample4_extraAddress" placeholder="참고항목"></td>
-			</tr> -->
-			<tr>
-				<td>전화번호</td>
-				<td><input name="phone" required></td>
-			</tr>
-			<tr>
-				<td>영업 시작 시간</td>
-				<td><input type="number" name="openTime" required></td>
-			</tr>
-			<tr>
-				<td>영업 종료 시간</td>
-				<td><input type="number" name="closeTime" required></td>
-			</tr>
-			<tr>
-				<td>최소 주문 가격</td>
-				<td><input type="number" name="minPrice" required></td>
-			</tr>
-			<tr>
-				<td>휴무일</td>
-				<td><input name="dayOff" required></td>
-			</tr>
-			<tr>
-				<td>사장님 한마디</td>
-				<td><input name="content" required></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="등록" required></td>
-			</tr>
-		</table>
-	</form>
+	<c:if test="${not empty loginOwner}">
+		<form action="${pageContext.request.contextPath}/owner/storeEnroll.me" method="post">
+			<table style="border: 1px solid;">
+				<tr>
+					<td>가게 번호</td>
+					<td><input name="storeNo" value="${loginOwner.storeNo}" required></td>
+				</tr>
+				<tr>
+					<td>사업자 번호</td>
+					<td><input name="businessNumber" value="${loginOwner.businessNumber}" required></td>
+				</tr>
+			 	<tr>
+					<td>메뉴 카테고리</td>
+					<td><input type="number" name="category" required></td>
+				</tr>
+				<tr>
+					<td>상호명</td>
+					<td><input name="storeName" required></td>
+				</tr>
+	
+				<tr>
+					<td>사업자 주소</td>
+					<td><input name="address"></td>
+				</tr>
+				
+				<!-- <tr>
+					<td>사업자 주소</td>
+					<td><input type="text" id="sample4_postcode" placeholder="우편번호">
+						<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+						<input type="text" id="address" placeholder="주소합친거" required>
+						<input type="hidden" id="sample4_roadAddress" placeholder="도로명주소">
+						<input type="hidden" id="sample4_jibunAddress" placeholder="지번주소"><br>
+					<span id="guide" style="color:#999;display:none"></span>
+						<input type="hidden" id="sample4_detailAddress" placeholder="상세주소">
+						<input type="hidden" id="sample4_extraAddress" placeholder="참고항목"></td>
+				</tr> -->
+				<tr>
+					<td>전화번호</td>
+					<td><input name="phone" required></td>
+				</tr>
+				<tr>
+					<td>영업 시작 시간</td>
+					<td><input type="number" name="openTime" required></td>
+				</tr>
+				<tr>
+					<td>영업 종료 시간</td>
+					<td><input type="number" name="closeTime" required></td>
+				</tr>
+				<tr>
+					<td>최소 주문 가격</td>
+					<td><input type="number" name="minPrice" required></td>
+				</tr>
+				<tr>
+					<td>휴무일</td>
+					<td><input name="dayOff" required></td>
+				</tr>
+				<tr>
+					<td>사장님 한마디</td>
+					<td><input name="content" required></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="등록" required></td>
+				</tr>
+			</table>
+		</form>
+	</c:if>
+	<c:if test="${empty loginOwner}">
+			로그인해주세요.
+	</c:if>
 </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

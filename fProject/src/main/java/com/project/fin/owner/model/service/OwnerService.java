@@ -23,7 +23,6 @@ public interface OwnerService {
 
 	int updatePwd(Owner owner);
 
-	List<MenuGroup> selectMenuGroup(int storeNo);
 	
 }
 

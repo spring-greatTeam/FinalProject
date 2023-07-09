@@ -18,13 +18,11 @@ public interface OwnerDao {
 
 	int insertMenu(Menu menu);
 	
-	Owner selectOneOwner(String memberId);
+	Owner selectOneOwner(String ownerId);
 
 	int insertOwner(Owner owner);
 
 	int updateOwner(Owner owner);
 
 	int updatePwd(Owner owner);
-
-	List<MenuGroup> selectMenuGroup(int storeNo);
 }

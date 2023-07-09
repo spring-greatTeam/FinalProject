@@ -33,8 +33,8 @@ public class OwnerServiceImpl implements OwnerService{
 	}
 	
 	@Override
-	public Owner selectOneOwner(String memberId) {
-		return ownerDao.selectOneOwner(memberId);
+	public Owner selectOneOwner(String ownerId) {
+		return ownerDao.selectOneOwner(ownerId);
 	}
 
 	@Override
@@ -52,10 +52,4 @@ public class OwnerServiceImpl implements OwnerService{
 		return ownerDao.updatePwd(owner);
 	}
 
-	@Override
-	public List<MenuGroup> selectMenuGroup(int storeNo) {
-		return ownerDao.selectMenuGroup(storeNo);
-	}
-
-	
 }
